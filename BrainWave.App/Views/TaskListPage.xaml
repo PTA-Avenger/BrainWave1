@@ -9,18 +9,26 @@
             <Button Text="Refresh" Command="{Binding LoadTasksCommand}" IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}" />
             <Label Grid.Column="1" Text="{Binding ErrorMessage}" TextColor="Red" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyConverter}}" />
         </Grid>
-        <CollectionView Grid.Row="2" ItemsSource="{Binding Tasks}" Margin="0,6,0,0">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame Style="{StaticResource Card}" Margin="0,8">
-                        <VerticalStackLayout>
-                            <Label Text="{Binding Title}" Style="{StaticResource Heading2}" />
-                            <Label Text="{Binding Description}" />
-                            <Label Text="{Binding Due_Date}" Style="{StaticResource Caption}" />
-                        </VerticalStackLayout>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <RefreshView Grid.Row="2" IsRefreshing="{Binding IsBusy}" Command="{Binding LoadTasksCommand}">
+            <CollectionView ItemsSource="{Binding Tasks}" Margin="0,6,0,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Style="{StaticResource Card}" Margin="0,8">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Title}" Style="{StaticResource Heading2}" />
+                                <Label Text="{Binding Description}" />
+                                <Label Text="{Binding Due_Date}" Style="{StaticResource Caption}" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <VerticalStackLayout Padding="32" Spacing="8" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="No tasks yet" Style="{StaticResource Heading2}" HorizontalTextAlignment="Center" />
+                        <Label Text="Pull to refresh or create a new task." Style="{StaticResource Caption}" HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </RefreshView>
     </Grid>
 </ContentPage>

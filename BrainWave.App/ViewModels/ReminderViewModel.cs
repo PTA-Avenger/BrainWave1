@@ -22,6 +22,9 @@ namespace BrainWave.App.ViewModels
         [ObservableProperty]
         private string errorMessage = string.Empty;
 
+        [ObservableProperty]
+        private int? currentTaskId;
+
         public ReminderViewModel(ApiService api, AuthService auth)
         {
             _api = api;
@@ -31,6 +34,7 @@ namespace BrainWave.App.ViewModels
         [RelayCommand]
         public async Task LoadRemindersAsync(int taskId)
         {
+            currentTaskId = taskId;
             if (isBusy) return;
             isBusy = true;
             errorMessage = string.Empty;
@@ -47,6 +51,15 @@ namespace BrainWave.App.ViewModels
             finally
             {
                 isBusy = false;
+            }
+        }
+
+        [RelayCommand]
+        public async Task RefreshAsync()
+        {
+            if (currentTaskId.HasValue)
+            {
+                await LoadRemindersAsync(currentTaskId.Value);
             }
         }
     }

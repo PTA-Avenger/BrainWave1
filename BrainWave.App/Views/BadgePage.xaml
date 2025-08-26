@@ -6,17 +6,25 @@
     <Grid Padding="16" RowDefinitions="Auto,Auto,*" RowSpacing="8">
         <Label Text="Badges" Style="{StaticResource Heading1}" />
         <Label Grid.Row="1" Text="{Binding ErrorMessage}" TextColor="Red" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyConverter}}" />
-        <CollectionView Grid.Row="2" ItemsSource="{Binding Badges}" Margin="0,6,0,0">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame Style="{StaticResource Card}" Margin="0,8">
-                        <VerticalStackLayout>
-                            <Label Text="{Binding Badge_Type}" Style="{StaticResource Heading2}" />
-                            <Label Text="{Binding Badge_Description}" />
-                        </VerticalStackLayout>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <RefreshView Grid.Row="2" IsRefreshing="{Binding IsBusy}" Command="{Binding LoadBadgesCommand}">
+            <CollectionView ItemsSource="{Binding Badges}" Margin="0,6,0,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Style="{StaticResource Card}" Margin="0,8">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Badge_Type}" Style="{StaticResource Heading2}" />
+                                <Label Text="{Binding Badge_Description}" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <VerticalStackLayout Padding="32" Spacing="8" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="No badges yet" Style="{StaticResource Heading2}" HorizontalTextAlignment="Center" />
+                        <Label Text="Pull to refresh to check for badges." Style="{StaticResource Caption}" HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </RefreshView>
     </Grid>
 </ContentPage>
