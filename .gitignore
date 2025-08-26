@@ -1,0 +1,30 @@
+# Build artifacts
+bin/
+obj/
+**/bin/
+**/obj/
+.vs/
+**/.vs/
+
+# IDE/editor
+.idea/
+.vscode/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Databases and caches
+*.db
+*.db3
+*.sqlite
+*.sqlite3
+*.mdb
+
+# Logs
+*.log
+
