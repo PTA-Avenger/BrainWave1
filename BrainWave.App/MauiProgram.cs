@@ -1,4 +1,4 @@
-﻿using BrainWave.App.Services;
+using BrainWave.App.Services;
 using BrainWave.App.Models;
 using BrainWave.App.Views;
 using BrainWave.App.ViewModels;
@@ -24,6 +24,8 @@ public static class MauiProgram
         // Services
         builder.Services.AddSingleton<AuthService>();
         builder.Services.AddSingleton<ApiService>();
+        builder.Services.AddSingleton<LocalDatabase>();
+        builder.Services.AddSingleton<SyncService>();
 
 
         // ViewModels

@@ -1,4 +1,4 @@
-﻿using System.Net.Http.Headers;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using BrainWave.App.Models;
@@ -11,6 +11,7 @@ public class ApiService
 {
     private readonly HttpClient _http;
     private readonly AuthService _auth;
+    private readonly LocalDatabase? _local; // optional for offline-first
 
 
     private static readonly JsonSerializerOptions _jsonOpts = new()
@@ -20,9 +21,10 @@ public class ApiService
     };
 
 
-    public ApiService(AuthService auth)
+    public ApiService(AuthService auth, LocalDatabase? local = null)
     {
         _auth = auth;
+        _local = local;
         _http = new HttpClient { BaseAddress = new Uri(Constants.ApiBaseUrl + "/") };
     }
 
@@ -98,33 +100,133 @@ public class ApiService
     public async Task<List<TaskDto>?> GetTasksAsync(int userId)
     {
         AttachAuth();
-        var res = await _http.GetAsync($"Task/{userId}");
-        if (!res.IsSuccessStatusCode) return null;
-        var json = await res.Content.ReadAsStringAsync();
-        return JsonSerializer.Deserialize<List<TaskDto>>(json, _jsonOpts);
+        try
+        {
+            var res = await _http.GetAsync($"Task/{userId}");
+            if (!res.IsSuccessStatusCode) throw new HttpRequestException();
+            var json = await res.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<List<TaskDto>>(json, _jsonOpts);
+        }
+        catch
+        {
+            if (_local != null)
+            {
+                var locals = await _local.GetTasksAsync(userId);
+                return locals.Select(t => new TaskDto
+                {
+                    TaskID = t.RemoteTaskID ?? 0,
+                    UserID = t.UserID,
+                    Title = t.Title,
+                    Description = t.Description,
+                    Task_Status = t.Task_Status,
+                    Priority_Level = t.Priority_Level,
+                    Due_Date = t.Due_DateUtc.HasValue ? DateOnly.FromDateTime(t.Due_DateUtc.Value) : null
+                }).ToList();
+            }
+            return null;
+        }
     }
 
     public async Task<TaskDto?> CreateTaskAsync(TaskDto task)
     {
         AttachAuth();
-        var res = await _http.PostAsync("Task", new StringContent(JsonSerializer.Serialize(task), Encoding.UTF8, "application/json"));
-        if (!res.IsSuccessStatusCode) return null;
-        var json = await res.Content.ReadAsStringAsync();
-        return JsonSerializer.Deserialize<TaskDto>(json, _jsonOpts);
+        try
+        {
+            var res = await _http.PostAsync("Task", new StringContent(JsonSerializer.Serialize(task), Encoding.UTF8, "application/json"));
+            if (!res.IsSuccessStatusCode) throw new HttpRequestException();
+            var json = await res.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<TaskDto>(json, _jsonOpts);
+        }
+        catch
+        {
+            if (_local != null)
+            {
+                var local = new LocalTask
+                {
+                    RemoteTaskID = null,
+                    UserID = task.UserID,
+                    Title = task.Title,
+                    Description = task.Description,
+                    Task_Status = task.Task_Status,
+                    Priority_Level = task.Priority_Level,
+                    Due_DateUtc = task.Due_Date?.ToDateTime(TimeOnly.MinValue),
+                    IsDirty = true,
+                    UpdatedAtUtc = DateTime.UtcNow
+                };
+                await _local.InsertTaskAsync(local);
+                return new TaskDto
+                {
+                    TaskID = 0,
+                    UserID = local.UserID,
+                    Title = local.Title,
+                    Description = local.Description,
+                    Task_Status = local.Task_Status,
+                    Priority_Level = local.Priority_Level,
+                    Due_Date = task.Due_Date
+                };
+            }
+            return null;
+        }
     }
 
     public async Task<bool> UpdateTaskAsync(int id, TaskDto task)
     {
         AttachAuth();
-        var res = await _http.PutAsync($"Task/{id}", new StringContent(JsonSerializer.Serialize(task), Encoding.UTF8, "application/json"));
-        return res.IsSuccessStatusCode;
+        try
+        {
+            var res = await _http.PutAsync($"Task/{id}", new StringContent(JsonSerializer.Serialize(task), Encoding.UTF8, "application/json"));
+            return res.IsSuccessStatusCode;
+        }
+        catch
+        {
+            if (_local != null)
+            {
+                // best-effort: find local by RemoteTaskID
+                var userId = task.UserID;
+                var locals = await _local.GetTasksAsync(userId);
+                var local = locals.FirstOrDefault(t => t.RemoteTaskID == id);
+                if (local != null)
+                {
+                    local.Title = task.Title;
+                    local.Description = task.Description;
+                    local.Task_Status = task.Task_Status;
+                    local.Priority_Level = task.Priority_Level;
+                    local.Due_DateUtc = task.Due_Date?.ToDateTime(TimeOnly.MinValue);
+                    local.IsDirty = true;
+                    local.UpdatedAtUtc = DateTime.UtcNow;
+                    await _local.UpdateTaskAsync(local);
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     public async Task<bool> DeleteTaskAsync(int id)
     {
         AttachAuth();
-        var res = await _http.DeleteAsync($"Task/{id}");
-        return res.IsSuccessStatusCode;
+        try
+        {
+            var res = await _http.DeleteAsync($"Task/{id}");
+            return res.IsSuccessStatusCode;
+        }
+        catch
+        {
+            if (_local != null && _auth.CurrentUserId.HasValue)
+            {
+                var locals = await _local.GetTasksAsync(_auth.CurrentUserId.Value);
+                var local = locals.FirstOrDefault(t => t.RemoteTaskID == id);
+                if (local != null)
+                {
+                    local.IsDeleted = true;
+                    local.IsDirty = true;
+                    local.UpdatedAtUtc = DateTime.UtcNow;
+                    await _local.UpdateTaskAsync(local);
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     // --- Collaboration ---
