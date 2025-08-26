@@ -3,14 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BrainWave.App.Views.DashboardPage"
              Title="Dashboard">
-    <VerticalStackLayout Padding="20" Spacing="10">
-        <Label Text="{Binding WelcomeMessage}" FontSize="24" />
-        <Label Text="Latest Note:" FontAttributes="Bold" />
-        <Label Text="{Binding LatestNote}" />
-        <Label Text="Most Urgent Task:" FontAttributes="Bold" />
-        <Label Text="{Binding MostUrgentTask}" />
-        <Label Text="Streak Count:" FontAttributes="Bold" />
-        <Label Text="{Binding StreakCount}" />
-        <Button Text="Refresh" Command="{Binding LoadDashboardCommand}" IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Label Text="{Binding WelcomeMessage}" Style="{StaticResource Heading1}" />
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Frame Style="{StaticResource Card}">
+                    <VerticalStackLayout>
+                        <Label Text="Latest Note" Style="{StaticResource Heading2}" />
+                        <Label Text="{Binding LatestNote}" />
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame Style="{StaticResource Card}" Grid.Column="1">
+                    <VerticalStackLayout>
+                        <Label Text="Most Urgent Task" Style="{StaticResource Heading2}" />
+                        <Label Text="{Binding MostUrgentTask}" />
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+            <Frame Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+                    <Label Text="Streak" Style="{StaticResource Heading2}" />
+                    <Label Grid.Column="1" Text="{Binding StreakCount}" />
+                </Grid>
+            </Frame>
+            <Button Text="Refresh" Command="{Binding LoadDashboardCommand}" IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
