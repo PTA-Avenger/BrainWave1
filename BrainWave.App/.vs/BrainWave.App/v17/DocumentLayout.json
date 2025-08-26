@@ -1,0 +1,762 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\BrainWave\\BrainWave.App\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\registerpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\registerpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\converters\\inverseboolconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:converters\\inverseboolconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\converters\\stringnotemptyconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:converters\\stringnotemptyconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\registerpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\registerpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\badgepage.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\badgepage.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\loginpage.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\loginpage.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\registerpage.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\registerpage.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\brainwave.app.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:brainwave.app.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\viewmodels\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:viewmodels\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\viewmodels\\userviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:viewmodels\\userviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\viewmodels\\taskviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:viewmodels\\taskviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\viewmodels\\reminderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:viewmodels\\reminderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\viewmodels\\exportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:viewmodels\\exportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\viewmodels\\collaborationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:viewmodels\\collaborationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\viewmodels\\badgeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:viewmodels\\badgeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\models\\collaborationmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:models\\collaborationmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\models\\badgemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:models\\badgemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\models\\remindermodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:models\\remindermodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\models\\taskmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:models\\taskmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\models\\authmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:models\\authmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\collaborationpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\collaborationpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\collaborationpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\collaborationpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\badgepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\badgepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\reminderpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\reminderpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\reminderpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\reminderpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\taskdetailpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\taskdetailpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\taskdetailpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\taskdetailpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\tasklistpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\tasklistpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\tasklistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\tasklistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\dashboardpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\dashboardpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\views\\dashboardpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:views\\dashboardpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\viewmodels\\tasklistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:viewmodels\\tasklistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\viewmodels\\taskdetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:viewmodels\\taskdetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|c:\\brainwave\\brainwave.app\\models\\exportdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89DE114A-5FC1-489E-B7D0-545A07B8030D}|BrainWave.App.csproj|solutionrelative:models\\exportdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StringNotEmptyConverter.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Converters\\StringNotEmptyConverter.cs",
+              "RelativeDocumentMoniker": "Converters\\StringNotEmptyConverter.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Converters\\StringNotEmptyConverter.cs",
+              "RelativeToolTip": "Converters\\StringNotEmptyConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T19:40:01.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LoginPage.xaml",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\LoginPage.xaml",
+              "RelativeDocumentMoniker": "Views\\LoginPage.xaml",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\LoginPage.xaml",
+              "RelativeToolTip": "Views\\LoginPage.xaml",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-26T19:34:00.096Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegisterPage.xaml",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\RegisterPage.xaml",
+              "RelativeDocumentMoniker": "Views\\RegisterPage.xaml",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\RegisterPage.xaml",
+              "RelativeToolTip": "Views\\RegisterPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-26T19:33:00.137Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RegisterPage.xaml.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\RegisterPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\RegisterPage.xaml.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\RegisterPage.xaml.cs",
+              "RelativeToolTip": "Views\\RegisterPage.xaml.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAArwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:37:10.932Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-25T11:44:47.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ApiService.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Services\\ApiService.cs",
+              "RelativeDocumentMoniker": "Services\\ApiService.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Services\\ApiService.cs",
+              "RelativeToolTip": "Services\\ApiService.cs",
+              "ViewState": "AgIAAMQAAAAAAAAAAAAIwOEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:34:12.586Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RegisterViewModel.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\ViewModels\\RegisterViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\RegisterViewModel.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\ViewModels\\RegisterViewModel.cs",
+              "RelativeToolTip": "ViewModels\\RegisterViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T15:47:18.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "InverseBoolConverter.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Converters\\InverseBoolConverter.cs",
+              "RelativeDocumentMoniker": "Converters\\InverseBoolConverter.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Converters\\InverseBoolConverter.cs",
+              "RelativeToolTip": "Converters\\InverseBoolConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T19:40:09.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "ExportDto.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Models\\ExportDto.cs",
+              "RelativeDocumentMoniker": "Models\\ExportDto.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Models\\ExportDto.cs",
+              "RelativeToolTip": "Models\\ExportDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T20:18:06.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BadgePage.xaml",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\BadgePage.xaml",
+              "RelativeDocumentMoniker": "Views\\BadgePage.xaml",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\BadgePage.xaml",
+              "RelativeToolTip": "Views\\BadgePage.xaml",
+              "ViewState": "AgIAABQAAAAAAAAAAIBJwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-26T19:07:26.793Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\ViewModels\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\LoginViewModel.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\ViewModels\\LoginViewModel.cs",
+              "RelativeToolTip": "ViewModels\\LoginViewModel.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAswDAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T15:47:19.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\App.xaml.cs",
+              "RelativeToolTip": "App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:44:54.768Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AppShell.xaml.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\AppShell.xaml.cs",
+              "RelativeDocumentMoniker": "AppShell.xaml.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\AppShell.xaml.cs",
+              "RelativeToolTip": "AppShell.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:45:40.295Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginPage.xaml.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\LoginPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\LoginPage.xaml.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\LoginPage.xaml.cs",
+              "RelativeToolTip": "Views\\LoginPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:36:23.161Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LoginPage.xaml",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\LoginPage.xaml",
+              "RelativeDocumentMoniker": "Views\\LoginPage.xaml",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\LoginPage.xaml",
+              "RelativeToolTip": "Views\\LoginPage.xaml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-26T18:30:53.062Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ReminderViewModel.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\ViewModels\\ReminderViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ReminderViewModel.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\ViewModels\\ReminderViewModel.cs",
+              "RelativeToolTip": "ViewModels\\ReminderViewModel.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAEBVwDQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T15:47:18.545Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AppShell.xaml",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\AppShell.xaml",
+              "RelativeDocumentMoniker": "AppShell.xaml",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\AppShell.xaml",
+              "RelativeToolTip": "AppShell.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-25T11:45:29.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RegisterPage.xaml",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\RegisterPage.xaml",
+              "RelativeDocumentMoniker": "Views\\RegisterPage.xaml",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\RegisterPage.xaml",
+              "RelativeToolTip": "Views\\RegisterPage.xaml",
+              "ViewState": "AgIAABAAAAAAAAAAAAAMwBEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-26T18:32:21.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ExportViewModel.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\ViewModels\\ExportViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ExportViewModel.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\ViewModels\\ExportViewModel.cs",
+              "RelativeToolTip": "ViewModels\\ExportViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T16:09:27.592Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "DashboardViewModel.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\ViewModels\\DashboardViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\DashboardViewModel.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\ViewModels\\DashboardViewModel.cs",
+              "RelativeToolTip": "ViewModels\\DashboardViewModel.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAIBZwCoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T15:47:18.911Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "TaskListViewModel.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\ViewModels\\TaskListViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\TaskListViewModel.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\ViewModels\\TaskListViewModel.cs",
+              "RelativeToolTip": "ViewModels\\TaskListViewModel.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAIBZwDkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T16:21:27.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "TaskDetailViewModel.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\ViewModels\\TaskDetailViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\TaskDetailViewModel.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\ViewModels\\TaskDetailViewModel.cs",
+              "RelativeToolTip": "ViewModels\\TaskDetailViewModel.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAEBVwDEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T16:21:30.761Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "BrainWave.App.csproj",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\BrainWave.App.csproj",
+              "RelativeDocumentMoniker": "BrainWave.App.csproj",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\BrainWave.App.csproj",
+              "RelativeToolTip": "BrainWave.App.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-25T11:33:41.244Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "MauiProgram.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\MauiProgram.cs",
+              "RelativeToolTip": "MauiProgram.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwDQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:43:14.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "CollaborationViewModel.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\ViewModels\\CollaborationViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\CollaborationViewModel.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\ViewModels\\CollaborationViewModel.cs",
+              "RelativeToolTip": "ViewModels\\CollaborationViewModel.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAEBVwDUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T15:47:19.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TaskViewModel.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\ViewModels\\TaskViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\TaskViewModel.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\ViewModels\\TaskViewModel.cs",
+              "RelativeToolTip": "ViewModels\\TaskViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T15:56:32.267Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "UserViewModel.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\ViewModels\\UserViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\UserViewModel.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\ViewModels\\UserViewModel.cs",
+              "RelativeToolTip": "ViewModels\\UserViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T15:53:24.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "BadgeViewModel.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\ViewModels\\BadgeViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\BadgeViewModel.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\ViewModels\\BadgeViewModel.cs",
+              "RelativeToolTip": "ViewModels\\BadgeViewModel.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAEBVwDQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T15:47:18.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Services\\AuthService.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Services\\AuthService.cs",
+              "RelativeToolTip": "Services\\AuthService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA7wCkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:34:35.073Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "CollaborationModels.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Models\\CollaborationModels.cs",
+              "RelativeDocumentMoniker": "Models\\CollaborationModels.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Models\\CollaborationModels.cs",
+              "RelativeToolTip": "Models\\CollaborationModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:33:08.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "BadgeModels.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Models\\BadgeModels.cs",
+              "RelativeDocumentMoniker": "Models\\BadgeModels.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Models\\BadgeModels.cs",
+              "RelativeToolTip": "Models\\BadgeModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:32:47.861Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ReminderModels.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Models\\ReminderModels.cs",
+              "RelativeDocumentMoniker": "Models\\ReminderModels.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Models\\ReminderModels.cs",
+              "RelativeToolTip": "Models\\ReminderModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:32:25.711Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "TaskModels.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Models\\TaskModels.cs",
+              "RelativeDocumentMoniker": "Models\\TaskModels.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Models\\TaskModels.cs",
+              "RelativeToolTip": "Models\\TaskModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAACBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:31:58.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "AuthModels.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Models\\AuthModels.cs",
+              "RelativeDocumentMoniker": "Models\\AuthModels.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Models\\AuthModels.cs",
+              "RelativeToolTip": "Models\\AuthModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:31:29.408Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Constants.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Constants.cs",
+              "RelativeDocumentMoniker": "Constants.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Constants.cs",
+              "RelativeToolTip": "Constants.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:44:06.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "CollaborationPage.xaml.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\CollaborationPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\CollaborationPage.xaml.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\CollaborationPage.xaml.cs",
+              "RelativeToolTip": "Views\\CollaborationPage.xaml.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAEBVwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:42:13.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "CollaborationPage.xaml",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\CollaborationPage.xaml",
+              "RelativeDocumentMoniker": "Views\\CollaborationPage.xaml",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\CollaborationPage.xaml",
+              "RelativeToolTip": "Views\\CollaborationPage.xaml",
+              "ViewState": "AgIAABMAAAAAAAAAAABRwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-25T11:41:48.555Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "BadgePage.xaml.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\BadgePage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\BadgePage.xaml.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\BadgePage.xaml.cs",
+              "RelativeToolTip": "Views\\BadgePage.xaml.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAIBZwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:41:20.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "ReminderPage.xaml.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\ReminderPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\ReminderPage.xaml.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\ReminderPage.xaml.cs",
+              "RelativeToolTip": "Views\\ReminderPage.xaml.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAEBVwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:40:23.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "ReminderPage.xaml",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\ReminderPage.xaml",
+              "RelativeDocumentMoniker": "Views\\ReminderPage.xaml",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\ReminderPage.xaml",
+              "RelativeToolTip": "Views\\ReminderPage.xaml",
+              "ViewState": "AgIAABMAAAAAAAAAAABRwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-25T11:40:00.214Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "TaskDetailPage.xaml.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\TaskDetailPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\TaskDetailPage.xaml.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\TaskDetailPage.xaml.cs",
+              "RelativeToolTip": "Views\\TaskDetailPage.xaml.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAEBVwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:39:31.198Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "TaskDetailPage.xaml",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\TaskDetailPage.xaml",
+              "RelativeDocumentMoniker": "Views\\TaskDetailPage.xaml",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\TaskDetailPage.xaml",
+              "RelativeToolTip": "Views\\TaskDetailPage.xaml",
+              "ViewState": "AgIAABAAAAAAAAAAAEBVwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-25T11:39:11.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "TaskListPage.xaml.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\TaskListPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\TaskListPage.xaml.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\TaskListPage.xaml.cs",
+              "RelativeToolTip": "Views\\TaskListPage.xaml.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAIBZwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:38:46.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "TaskListPage.xaml",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\TaskListPage.xaml",
+              "RelativeDocumentMoniker": "Views\\TaskListPage.xaml",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\TaskListPage.xaml",
+              "RelativeToolTip": "Views\\TaskListPage.xaml",
+              "ViewState": "AgIAABUAAAAAAAAAAABRwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-25T11:38:25.48Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "DashboardPage.xaml.cs",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\DashboardPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\DashboardPage.xaml.cs",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\DashboardPage.xaml.cs",
+              "RelativeToolTip": "Views\\DashboardPage.xaml.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAEBVwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:38:00.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "DashboardPage.xaml",
+              "DocumentMoniker": "C:\\BrainWave\\BrainWave.App\\Views\\DashboardPage.xaml",
+              "RelativeDocumentMoniker": "Views\\DashboardPage.xaml",
+              "ToolTip": "C:\\BrainWave\\BrainWave.App\\Views\\DashboardPage.xaml",
+              "RelativeToolTip": "Views\\DashboardPage.xaml",
+              "ViewState": "AgIAAA0AAAAAAAAAAABRwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-25T11:37:32.968Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

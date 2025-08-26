@@ -1,0 +1,5 @@
+C:\BrainWave.App\obj\Debug\net8.0\BrainWave.App.csproj.AssemblyReference.cache
+C:\BrainWave.App\obj\Debug\net8.0\BrainWave.App.GeneratedMSBuildEditorConfig.editorconfig
+C:\BrainWave.App\obj\Debug\net8.0\BrainWave.App.AssemblyInfoInputs.cache
+C:\BrainWave.App\obj\Debug\net8.0\BrainWave.App.AssemblyInfo.cs
+C:\BrainWave.App\obj\Debug\net8.0\BrainWave.App.csproj.CoreCompileInputs.cache

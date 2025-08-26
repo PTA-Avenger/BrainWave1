@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BrainWave.App</name>
+    </assembly>
+    <members>
+        <member name="T:BrainWave.App.ViewModels.BadgeViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.BadgeViewModel.Badges">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.BadgeViewModel.badges"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.BadgeViewModel.IsBusy">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.BadgeViewModel.isBusy"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.BadgeViewModel.ErrorMessage">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.BadgeViewModel.errorMessage"/>
+        </member>
+        <member name="F:BrainWave.App.ViewModels.BadgeViewModel.loadBadgesCommand">
+            <summary>The backing field for <see cref="P:BrainWave.App.ViewModels.BadgeViewModel.LoadBadgesCommand"/>.</summary>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.BadgeViewModel.LoadBadgesCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BrainWave.App.ViewModels.BadgeViewModel.LoadBadgesAsync"/>.</summary>
+        </member>
+        <member name="T:BrainWave.App.ViewModels.CollaborationViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.CollaborationViewModel.Collaborations">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.CollaborationViewModel.collaborations"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.CollaborationViewModel.IsBusy">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.CollaborationViewModel.isBusy"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.CollaborationViewModel.ErrorMessage">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.CollaborationViewModel.errorMessage"/>
+        </member>
+        <member name="F:BrainWave.App.ViewModels.CollaborationViewModel.loadCollaborationsCommand">
+            <summary>The backing field for <see cref="P:BrainWave.App.ViewModels.CollaborationViewModel.LoadCollaborationsCommand"/>.</summary>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.CollaborationViewModel.LoadCollaborationsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:BrainWave.App.ViewModels.CollaborationViewModel.LoadCollaborationsAsync(System.Int32)"/>.</summary>
+        </member>
+        <member name="T:BrainWave.App.ViewModels.DashboardViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.DashboardViewModel.WelcomeMessage">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.DashboardViewModel.welcomeMessage"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.DashboardViewModel.LatestNote">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.DashboardViewModel.latestNote"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.DashboardViewModel.MostUrgentTask">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.DashboardViewModel.mostUrgentTask"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.DashboardViewModel.StreakCount">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.DashboardViewModel.streakCount"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.DashboardViewModel.IsBusy">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.DashboardViewModel.isBusy"/>
+        </member>
+        <member name="F:BrainWave.App.ViewModels.DashboardViewModel.loadDashboardCommand">
+            <summary>The backing field for <see cref="P:BrainWave.App.ViewModels.DashboardViewModel.LoadDashboardCommand"/>.</summary>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.DashboardViewModel.LoadDashboardCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BrainWave.App.ViewModels.DashboardViewModel.LoadDashboardAsync"/>.</summary>
+        </member>
+        <member name="T:BrainWave.App.ViewModels.LoginViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.LoginViewModel.Email">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.LoginViewModel.email"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.LoginViewModel.Password">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.LoginViewModel.password"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.LoginViewModel.IsBusy">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.LoginViewModel.isBusy"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.LoginViewModel.ErrorMessage">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.LoginViewModel.errorMessage"/>
+        </member>
+        <member name="F:BrainWave.App.ViewModels.LoginViewModel.loginCommand">
+            <summary>The backing field for <see cref="P:BrainWave.App.ViewModels.LoginViewModel.LoginCommand"/>.</summary>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.LoginViewModel.LoginCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BrainWave.App.ViewModels.LoginViewModel.LoginAsync"/>.</summary>
+        </member>
+        <member name="T:BrainWave.App.ViewModels.RegisterViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.RegisterViewModel.FirstName">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.RegisterViewModel.firstName"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.RegisterViewModel.LastName">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.RegisterViewModel.lastName"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.RegisterViewModel.Email">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.RegisterViewModel.email"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.RegisterViewModel.Password">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.RegisterViewModel.password"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.RegisterViewModel.ConfirmPassword">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.RegisterViewModel.confirmPassword"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.RegisterViewModel.IsBusy">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.RegisterViewModel.isBusy"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.RegisterViewModel.ErrorMessage">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.RegisterViewModel.errorMessage"/>
+        </member>
+        <member name="F:BrainWave.App.ViewModels.RegisterViewModel.registerCommand">
+            <summary>The backing field for <see cref="P:BrainWave.App.ViewModels.RegisterViewModel.RegisterCommand"/>.</summary>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.RegisterViewModel.RegisterCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BrainWave.App.ViewModels.RegisterViewModel.RegisterAsync"/>.</summary>
+        </member>
+        <member name="T:BrainWave.App.ViewModels.ReminderViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.ReminderViewModel.Reminders">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.ReminderViewModel.reminders"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.ReminderViewModel.IsBusy">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.ReminderViewModel.isBusy"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.ReminderViewModel.ErrorMessage">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.ReminderViewModel.errorMessage"/>
+        </member>
+        <member name="F:BrainWave.App.ViewModels.ReminderViewModel.loadRemindersCommand">
+            <summary>The backing field for <see cref="P:BrainWave.App.ViewModels.ReminderViewModel.LoadRemindersCommand"/>.</summary>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.ReminderViewModel.LoadRemindersCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:BrainWave.App.ViewModels.ReminderViewModel.LoadRemindersAsync(System.Int32)"/>.</summary>
+        </member>
+        <member name="T:BrainWave.App.ViewModels.TaskDetailViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.TaskDetailViewModel.Task">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.TaskDetailViewModel.task"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.TaskDetailViewModel.IsBusy">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.TaskDetailViewModel.isBusy"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.TaskDetailViewModel.ErrorMessage">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.TaskDetailViewModel.errorMessage"/>
+        </member>
+        <member name="T:BrainWave.App.ViewModels.TaskListViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.TaskListViewModel.Tasks">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.TaskListViewModel.tasks"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.TaskListViewModel.IsBusy">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.TaskListViewModel.isBusy"/>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.TaskListViewModel.ErrorMessage">
+            <inheritdoc cref="F:BrainWave.App.ViewModels.TaskListViewModel.errorMessage"/>
+        </member>
+        <member name="F:BrainWave.App.ViewModels.TaskListViewModel.loadTasksCommand">
+            <summary>The backing field for <see cref="P:BrainWave.App.ViewModels.TaskListViewModel.LoadTasksCommand"/>.</summary>
+        </member>
+        <member name="P:BrainWave.App.ViewModels.TaskListViewModel.LoadTasksCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BrainWave.App.ViewModels.TaskListViewModel.LoadTasksAsync"/>.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Badges">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Badges" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsBusy">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsBusy" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ErrorMessage">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ErrorMessage" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Collaborations">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Collaborations" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.WelcomeMessage">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "WelcomeMessage" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LatestNote">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LatestNote" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.MostUrgentTask">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "MostUrgentTask" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.StreakCount">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "StreakCount" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Email">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Email" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Password">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Password" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.FirstName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "FirstName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LastName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LastName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ConfirmPassword">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ConfirmPassword" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Reminders">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Reminders" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Task">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Task" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Tasks">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Tasks" generated properties.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Badges">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Badges" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsBusy">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsBusy" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ErrorMessage">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ErrorMessage" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Collaborations">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Collaborations" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.WelcomeMessage">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "WelcomeMessage" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LatestNote">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LatestNote" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.MostUrgentTask">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "MostUrgentTask" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.StreakCount">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "StreakCount" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Email">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Email" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Password">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Password" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FirstName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "FirstName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LastName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LastName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ConfirmPassword">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ConfirmPassword" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Reminders">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Reminders" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Task">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Task" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Tasks">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Tasks" generated properties.</summary>
+        </member>
+    </members>
+</doc>

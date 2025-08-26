@@ -1,0 +1,80 @@
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using BrainWave.App.Services;
+using System.Threading.Tasks;
+
+namespace BrainWave.App.ViewModels
+{
+    public partial class RegisterViewModel : ObservableObject
+    {
+        private readonly ApiService _apiService;
+        private readonly AuthService _authService;
+
+        [ObservableProperty]
+        private string firstName;
+
+        [ObservableProperty]
+        private string lastName;
+
+        [ObservableProperty]
+        private string email;
+
+        [ObservableProperty]
+        private string password;
+
+        [ObservableProperty]
+        private string confirmPassword;
+
+        [ObservableProperty]
+        private bool isBusy;
+
+        [ObservableProperty]
+        private string errorMessage = string.Empty;
+
+        [ObservableProperty]
+        private string successMessage = string.Empty;
+
+        public RegisterViewModel(ApiService apiService, AuthService authService)
+        {
+            _apiService = apiService;
+            _authService = authService;
+        }
+
+        [RelayCommand]
+        private async Task RegisterAsync()
+        {
+            if (IsBusy) return;
+            IsBusy = true;
+            ErrorMessage = string.Empty;
+            SuccessMessage = string.Empty;
+
+            try
+            {
+                if (Password != ConfirmPassword)
+                {
+                    ErrorMessage = "Passwords do not match.";
+                    return;
+                }
+
+                var req = new Models.RegisterRequest(FirstName, LastName, Email, Password, null);
+                var result = await _apiService.RegisterAsync(req);
+                if (result != null)
+                {
+                    SuccessMessage = "Registration successful! You can now log in.";
+                }
+                else
+                {
+                    ErrorMessage = "Registration failed. Please try again.";
+                }
+            }
+            catch (System.Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+    }
+}

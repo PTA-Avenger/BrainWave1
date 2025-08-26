@@ -1,0 +1,14 @@
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+namespace BrainWave.App.ViewModels
+{
+    public class BadgeViewModel : ObservableObject
+    {
+        public int BadgeID { get; set; }
+        public string BadgeType { get; set; }
+        public string BadgeDescription { get; set; }
+
+        // Optional: who earned it
+        public List<string> EarnedByUsers { get; set; } = new();
+    }
+}

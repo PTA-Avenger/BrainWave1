@@ -1,0 +1,18 @@
+﻿using System;
+using Microsoft.Maui.Controls;
+
+namespace BrainWave.App.Views
+{
+    public partial class TaskListPage : ContentPage
+    {
+        public TaskListPage()
+        {
+            InitializeComponent();
+            Loaded += async (s, e) =>
+            {
+                if (BindingContext is BrainWave.App.ViewModels.TaskListViewModel vm)
+                    await vm.LoadTasksAsync();
+            };
+        }
+    }
+}

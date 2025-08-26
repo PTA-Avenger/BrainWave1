@@ -1,0 +1,33 @@
+﻿using System.Net.Http.Headers;
+using System.Text;
+using System.Text.Json;
+
+
+namespace BrainWave.App.Services;
+
+
+public class ApiService
+{
+    private readonly HttpClient _http;
+    private readonly AuthService _auth;
+
+
+    private static readonly JsonSerializerOptions _jsonOpts = new()
+    {
+        PropertyNameCaseInsensitive = true,
+        WriteIndented = false
+    };
+
+
+    public ApiService(AuthService auth)
+    {
+        _auth = auth;
+        _http = new HttpClient { BaseAddress = new Uri(Constants.ApiBaseUrl + "/") };
+    }
+
+
+    private void AttachAuth()
+    {
+        _http.DefaultRequestHeaders.Authorization = null;
+    }
+}

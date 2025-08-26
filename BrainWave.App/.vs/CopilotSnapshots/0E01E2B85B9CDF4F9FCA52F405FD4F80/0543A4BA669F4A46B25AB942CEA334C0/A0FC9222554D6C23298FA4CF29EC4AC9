@@ -1,0 +1,54 @@
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+
+namespace BrainWave.App.ViewModels
+{
+    public partial class DashboardViewModel : ObservableObject
+    {
+        [ObservableProperty]
+        private string welcomeMessage;
+
+        [ObservableProperty]
+        private string latestNote;
+
+        [ObservableProperty]
+        private string mostUrgentTask;
+
+        [ObservableProperty]
+        private int streakCount;
+
+        [ObservableProperty]
+        private bool isBusy;
+
+        public DashboardViewModel()
+        {
+            WelcomeMessage = "Welcome back!";
+            LatestNote = "Loading...";
+            MostUrgentTask = "Loading...";
+            StreakCount = 0;
+        }
+
+        [RelayCommand]
+        private async Task LoadDashboardAsync()
+        {
+            if (IsBusy) return;
+            IsBusy = true;
+
+            try
+            {
+                // TODO: Call API to fetch latest note, urgent task, streaks
+                await Task.Delay(1000); // mock delay
+
+                LatestNote = "Your last saved note goes here.";
+                MostUrgentTask = "Finish writing the proposal.";
+                StreakCount = 5;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+    }
+}

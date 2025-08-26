@@ -1,0 +1,14 @@
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+namespace BrainWave.App.ViewModels
+{
+    public class ReminderViewModel : ObservableObject
+    {
+        public int ReminderID { get; set; }
+        public string ReminderType { get; set; }
+        public DateTime NotifyTime { get; set; }
+
+        // Related task
+        public string TaskTitle { get; set; }
+    }
+}

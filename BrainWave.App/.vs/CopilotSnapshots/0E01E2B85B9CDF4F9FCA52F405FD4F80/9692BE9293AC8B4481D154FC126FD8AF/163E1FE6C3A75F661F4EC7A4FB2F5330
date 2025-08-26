@@ -1,0 +1,56 @@
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using BrainWave.App.Models;
+using BrainWave.App.Services;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+
+namespace BrainWave.App.ViewModels
+{
+    public partial class TaskListViewModel : ObservableObject
+    {
+        private readonly ApiService _api;
+        private readonly AuthService _auth;
+
+        [ObservableProperty]
+        private ObservableCollection<TaskDto> tasks = new();
+
+        [ObservableProperty]
+        private bool isBusy;
+
+        [ObservableProperty]
+        private string errorMessage;
+
+        public TaskListViewModel(ApiService api, AuthService auth)
+        {
+            _api = api;
+            _auth = auth;
+        }
+
+        [RelayCommand]
+        public async Task LoadTasksAsync()
+        {
+            if (IsBusy) return;
+            IsBusy = true;
+            ErrorMessage = string.Empty;
+            try
+            {
+                if (_auth.CurrentUserId == null)
+                {
+                    ErrorMessage = "Not logged in.";
+                    return;
+                }
+                var result = await _api.GetTasksAsync(_auth.CurrentUserId.Value);
+                Tasks = new ObservableCollection<TaskDto>(result ?? new());
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+    }
+}

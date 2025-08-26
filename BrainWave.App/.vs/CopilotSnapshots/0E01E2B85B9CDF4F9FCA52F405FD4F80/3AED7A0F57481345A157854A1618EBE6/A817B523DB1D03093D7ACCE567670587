@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BrainWave.App.Views.BadgePage"
+             Title="Badges">
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="Badges" FontSize="24" />
+        <Label Text="{Binding ErrorMessage}" TextColor="Red" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyConverter}}" />
+        <CollectionView ItemsSource="{Binding Badges}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="0,5" Padding="10" BorderColor="#ccc">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Badge_Type}" FontAttributes="Bold" />
+                            <Label Text="{Binding Badge_Description}" FontSize="12" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

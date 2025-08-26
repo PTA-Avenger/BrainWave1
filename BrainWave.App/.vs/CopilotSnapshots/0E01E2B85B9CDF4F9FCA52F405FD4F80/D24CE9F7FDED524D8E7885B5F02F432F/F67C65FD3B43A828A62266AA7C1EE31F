@@ -1,0 +1,24 @@
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+namespace BrainWave.API.ViewModels
+{
+    public class CollaborationViewModel
+    {
+        public int CollaborationID { get; set; }
+        public string CollaborationTitle { get; set; }
+        public string CollaborationDescription { get; set; }
+
+        // Related Task
+        public string TaskTitle { get; set; }
+
+        // Members
+        public List<UserCollaborationViewModel> Members { get; set; } = new();
+    }
+
+    public class UserCollaborationViewModel
+    {
+        public int UserID { get; set; }
+        public string FullName { get; set; }
+        public string CollaborationRole { get; set; }
+    }
+}

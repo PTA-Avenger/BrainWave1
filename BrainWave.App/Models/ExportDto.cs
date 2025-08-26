@@ -1,0 +1,14 @@
+using System;
+using System.Collections.Generic;
+
+namespace BrainWave.App.Models
+{
+    public class ExportDto
+    {
+        public int ExportID { get; set; }
+        public int UserID { get; set; }
+        public int TaskID { get; set; }
+        public string? Export_Format { get; set; }
+        public DateTime? Date_Requested { get; set; }
+    }
+}

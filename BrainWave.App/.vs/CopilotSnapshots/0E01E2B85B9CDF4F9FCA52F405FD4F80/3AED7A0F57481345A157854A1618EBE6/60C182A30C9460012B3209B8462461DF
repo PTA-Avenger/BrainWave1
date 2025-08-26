@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:BrainWave.App.ViewModels"
+             x:Class="BrainWave.App.Views.TaskDetailPage"
+             Title="Task Detail">
+    <ContentPage.BindingContext>
+        <vm:TaskDetailViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="Task Detail" FontSize="24" />
+        <Label Text="{Binding ErrorMessage}" TextColor="Red" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyConverter}}" />
+        <Label Text="Title:" FontAttributes="Bold" />
+        <Label Text="{Binding Task.Title}" />
+        <Label Text="Description:" FontAttributes="Bold" />
+        <Label Text="{Binding Task.Description}" />
+        <Label Text="Due Date:" FontAttributes="Bold" />
+        <Label Text="{Binding Task.Due_Date}" />
+        <Label Text="Status:" FontAttributes="Bold" />
+        <Label Text="{Binding Task.Task_Status}" />
+        <Label Text="Priority:" FontAttributes="Bold" />
+        <Label Text="{Binding Task.Priority_Level}" />
+    </VerticalStackLayout>
+</ContentPage>

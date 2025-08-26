@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BrainWave.App.Views.DashboardPage"
+             Title="Dashboard">
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="{Binding WelcomeMessage}" FontSize="24" />
+        <Label Text="Latest Note:" FontAttributes="Bold" />
+        <Label Text="{Binding LatestNote}" />
+        <Label Text="Most Urgent Task:" FontAttributes="Bold" />
+        <Label Text="{Binding MostUrgentTask}" />
+        <Label Text="Streak Count:" FontAttributes="Bold" />
+        <Label Text="{Binding StreakCount}" />
+        <Button Text="Refresh" Command="{Binding LoadDashboardCommand}" IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}" />
+    </VerticalStackLayout>
+</ContentPage>

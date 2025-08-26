@@ -1,0 +1,9 @@
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+namespace BrainWave.App.ViewModels
+{
+    public class TaskDetailViewModel : ObservableObject
+    {
+        // Add properties and logic for Task Detail here
+    }
+}

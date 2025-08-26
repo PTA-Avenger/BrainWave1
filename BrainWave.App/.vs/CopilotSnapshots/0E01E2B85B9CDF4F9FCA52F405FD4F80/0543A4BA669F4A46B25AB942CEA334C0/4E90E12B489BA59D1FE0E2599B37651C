@@ -1,0 +1,56 @@
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Threading.Tasks;
+
+namespace BrainWave.App.ViewModels
+{
+    public partial class RegisterViewModel : ObservableObject
+    {
+        [ObservableProperty]
+        private string firstName;
+
+        [ObservableProperty]
+        private string lastName;
+
+        [ObservableProperty]
+        private string email;
+
+        [ObservableProperty]
+        private string password;
+
+        [ObservableProperty]
+        private string confirmPassword;
+
+        [ObservableProperty]
+        private bool isBusy;
+
+        [ObservableProperty]
+        private string errorMessage = string.Empty;
+
+        [RelayCommand]
+        private async Task RegisterAsync()
+        {
+            if (IsBusy) return;
+            IsBusy = true;
+            ErrorMessage = string.Empty;
+
+            try
+            {
+                if (Password != ConfirmPassword)
+                {
+                    ErrorMessage = "Passwords do not match.";
+                    return;
+                }
+
+                // TODO: Call API /Auth/register endpoint
+                await Task.Delay(1000); // mock delay
+
+                // Success → Navigate to login
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+    }
+}

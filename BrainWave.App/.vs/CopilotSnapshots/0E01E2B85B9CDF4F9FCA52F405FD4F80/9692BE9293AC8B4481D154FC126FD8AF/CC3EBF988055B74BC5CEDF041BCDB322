@@ -1,0 +1,51 @@
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using BrainWave.App.Models;
+using BrainWave.App.Services;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+
+namespace BrainWave.App.ViewModels
+{
+    public partial class CollaborationViewModel : ObservableObject
+    {
+        private readonly ApiService _api;
+        private readonly AuthService _auth;
+
+        [ObservableProperty]
+        private ObservableCollection<CollaborationDto> collaborations = new();
+
+        [ObservableProperty]
+        private bool isBusy;
+
+        [ObservableProperty]
+        private string errorMessage;
+
+        public CollaborationViewModel(ApiService api, AuthService auth)
+        {
+            _api = api;
+            _auth = auth;
+        }
+
+        [RelayCommand]
+        public async Task LoadCollaborationsAsync(int taskId)
+        {
+            if (IsBusy) return;
+            IsBusy = true;
+            ErrorMessage = string.Empty;
+            try
+            {
+                var result = await _api.GetCollaborationsAsync(taskId);
+                Collaborations = new ObservableCollection<CollaborationDto>(result ?? new());
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+    }
+}
