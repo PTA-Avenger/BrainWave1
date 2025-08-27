@@ -5,7 +5,18 @@ xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 xmlns:views="clr-namespace:BrainWave.App.Views">
 
+    <TabBar>
+        <ShellContent Route="Dashboard" Title="Dashboard" ContentTemplate="{DataTemplate views:DashboardPage}" />
+        <ShellContent Route="Tasks" Title="Tasks" ContentTemplate="{DataTemplate views:TaskListPage}" />
+        <ShellContent Route="Reminders" Title="Reminders" ContentTemplate="{DataTemplate views:ReminderPage}" />
+        <ShellContent Route="Badges" Title="Badges" ContentTemplate="{DataTemplate views:BadgePage}" />
+        <ShellContent Route="Collab" Title="Collaborations" ContentTemplate="{DataTemplate views:CollaborationPage}" />
+        <ShellContent Route="Profile" Title="Profile" ContentTemplate="{DataTemplate views:ProfilePage}" />
+    </TabBar>
 
-    <!-- Routes for navigation -->
-    <ShellContent Title="Login" ContentTemplate="{DataTemplate views:LoginPage}" />
+    <FlyoutItem Title="Login" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Route="Login" Title="Login" ContentTemplate="{DataTemplate views:LoginPage}" />
+        <ShellContent Route="Register" Title="Register" ContentTemplate="{DataTemplate views:RegisterPage}" />
+    </FlyoutItem>
+
 </Shell>

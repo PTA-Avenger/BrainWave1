@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BrainWave.App.Views.ProfilePage"
+             Title="Profile">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12" VerticalOptions="Center">
+                <Frame WidthRequest="72" HeightRequest="72" CornerRadius="36" Padding="0" HasShadow="True">
+                    <Image Source="{Binding ProfilePicture}" Aspect="AspectFill" />
+                </Frame>
+                <VerticalStackLayout Grid.Column="1">
+                    <Label Text="{Binding FullName}" Style="{StaticResource Heading1}" />
+                    <Label Text="{Binding Email}" Style="{StaticResource Caption}" />
+                    <Label Text="{Binding Role}" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <Button Text="Logout" Command="{Binding LogoutCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+
