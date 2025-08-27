@@ -5,6 +5,10 @@ xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 xmlns:views="clr-namespace:BrainWave.App.Views">
 
+    <!-- Make Login the first Shell item so the app starts here -->
+    <ShellContent Route="Login" Title="Login" ContentTemplate="{DataTemplate views:LoginPage}" />
+    <ShellContent Route="Register" Title="Register" ContentTemplate="{DataTemplate views:RegisterPage}" />
+
     <TabBar>
         <ShellContent Route="Dashboard" Title="Dashboard" ContentTemplate="{DataTemplate views:DashboardPage}" />
         <ShellContent Route="Tasks" Title="Tasks" ContentTemplate="{DataTemplate views:TaskListPage}" />
@@ -13,10 +17,5 @@ xmlns:views="clr-namespace:BrainWave.App.Views">
         <ShellContent Route="Collab" Title="Collaborations" ContentTemplate="{DataTemplate views:CollaborationPage}" />
         <ShellContent Route="Profile" Title="Profile" ContentTemplate="{DataTemplate views:ProfilePage}" />
     </TabBar>
-
-    <FlyoutItem Title="Login" FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Route="Login" Title="Login" ContentTemplate="{DataTemplate views:LoginPage}" />
-        <ShellContent Route="Register" Title="Register" ContentTemplate="{DataTemplate views:RegisterPage}" />
-    </FlyoutItem>
 
 </Shell>
