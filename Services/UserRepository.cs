@@ -80,8 +80,8 @@ public class UserRepository
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
         cmd.CommandText = _provider == "postgres"
-            ? "SELECT COUNT(1) FROM \"User\" WHERE \"email\" = @Email"
-            : "SELECT COUNT(1) FROM Users WHERE Email = @Email";
+            ? "SELECT COUNT(1) FROM \"User\" WHERE lower(\"email\") = lower(@Email)"
+            : "SELECT COUNT(1) FROM Users WHERE lower(Email) = lower(@Email)";
         cmd.Parameters.Add(CreateParameter(cmd, "@Email", email));
         var result = await cmd.ExecuteScalarAsync();
         return Convert.ToInt32(result) > 0;
@@ -169,8 +169,8 @@ public class UserRepository
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
         cmd.CommandText = _provider == "postgres"
-            ? "SELECT \"userid\", \"f_name\", \"l_name\", \"email\", \"password_hash\", \"role\", \"profile_picture\" FROM \"User\" WHERE \"email\" = @Email"
-            : "SELECT UserID, F_Name, L_Name, Email, Password_Hash, Role, Profile_Picture FROM Users WHERE Email = @Email";
+            ? "SELECT \"userid\", \"f_name\", \"l_name\", \"email\", \"password_hash\", \"role\", \"profile_picture\" FROM \"User\" WHERE lower(\"email\") = lower(@Email)"
+            : "SELECT UserID, F_Name, L_Name, Email, Password_Hash, Role, Profile_Picture FROM Users WHERE lower(Email) = lower(@Email)";
         cmd.Parameters.Add(CreateParameter(cmd, "@Email", email));
 
         using var reader = await cmd.ExecuteReaderAsync();
