@@ -31,7 +31,9 @@ public class CollaborationRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT CollaborationID, TaskID, Name, Description FROM Collaborations WHERE TaskID = @TaskID";
+        cmd.CommandText = _provider == "postgres"
+            ? "SELECT \"collaborationid\", \"taskid\", \"name\", \"description\" FROM collaborations WHERE \"taskid\" = @TaskID"
+            : "SELECT CollaborationID, TaskID, Name, Description FROM Collaborations WHERE TaskID = @TaskID";
         cmd.Parameters.Add(CreateParameter(cmd, "@TaskID", taskId));
         using var reader = await cmd.ExecuteReaderAsync();
         while (await reader.ReadAsync())
@@ -52,7 +54,9 @@ public class CollaborationRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT CollaborationID, TaskID, Name, Description FROM Collaborations WHERE CollaborationID = @id";
+        cmd.CommandText = _provider == "postgres"
+            ? "SELECT \"collaborationid\", \"taskid\", \"name\", \"description\" FROM collaborations WHERE \"collaborationid\" = @id"
+            : "SELECT CollaborationID, TaskID, Name, Description FROM Collaborations WHERE CollaborationID = @id";
         cmd.Parameters.Add(CreateParameter(cmd, "@id", id));
         using var reader = await cmd.ExecuteReaderAsync();
         if (await reader.ReadAsync())
@@ -73,10 +77,13 @@ public class CollaborationRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-            INSERT INTO Collaborations (TaskID, Name, Description)
-            VALUES (@TaskID, @Name, @Description);
-            " + (_provider == "postgres" ? "RETURNING CollaborationID;" : "SELECT last_insert_rowid();");
+        cmd.CommandText = _provider == "postgres"
+            ? @"INSERT INTO collaborations (\"taskid\", \"name\", \"description\")
+                VALUES (@TaskID, @Name, @Description)
+                RETURNING \"collaborationid\";"
+            : @"INSERT INTO Collaborations (TaskID, Name, Description)
+                VALUES (@TaskID, @Name, @Description);
+                SELECT last_insert_rowid();";
 
         cmd.Parameters.Add(CreateParameter(cmd, "@TaskID", collaboration.TaskID));
         cmd.Parameters.Add(CreateParameter(cmd, "@Name", collaboration.Collaboration_Title));
@@ -101,7 +108,9 @@ public class CollaborationRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "DELETE FROM Collaborations WHERE CollaborationID = @id";
+        cmd.CommandText = _provider == "postgres"
+            ? "DELETE FROM collaborations WHERE \"collaborationid\" = @id"
+            : "DELETE FROM Collaborations WHERE CollaborationID = @id";
         cmd.Parameters.Add(CreateParameter(cmd, "@id", id));
         await cmd.ExecuteNonQueryAsync();
     }

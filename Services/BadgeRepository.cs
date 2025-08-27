@@ -1,4 +1,4 @@
-﻿using BrainWave.Api.Entities;
+using BrainWave.Api.Entities;
 using BrainWave.API.Entities;
 using Microsoft.Data.Sqlite;
 using Npgsql;
@@ -31,7 +31,9 @@ public class BadgeRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT BadgeID, Badge_Type, Badge_Description FROM Badges";
+        cmd.CommandText = _provider == "postgres"
+            ? "SELECT \"badgeid\", \"badge_type\", \"badge_description\" FROM badges"
+            : "SELECT BadgeID, Badge_Type, Badge_Description FROM Badges";
         using var reader = await cmd.ExecuteReaderAsync();
         while (await reader.ReadAsync())
         {
@@ -50,7 +52,9 @@ public class BadgeRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT BadgeID, Badge_Type, Badge_Description FROM Badges WHERE BadgeID = @id";
+        cmd.CommandText = _provider == "postgres"
+            ? "SELECT \"badgeid\", \"badge_type\", \"badge_description\" FROM badges WHERE \"badgeid\" = @id"
+            : "SELECT BadgeID, Badge_Type, Badge_Description FROM Badges WHERE BadgeID = @id";
         cmd.Parameters.Add(CreateParameter(cmd, "@id", id));
         using var reader = await cmd.ExecuteReaderAsync();
         if (await reader.ReadAsync())
@@ -70,10 +74,13 @@ public class BadgeRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-            INSERT INTO Badges (Badge_Type, Badge_Description)
-            VALUES (@Badge_Type, @Badge_Description);
-            " + (_provider == "postgres" ? "RETURNING BadgeID;" : "SELECT last_insert_rowid();");
+        cmd.CommandText = _provider == "postgres"
+            ? @"INSERT INTO badges (\"badge_type\", \"badge_description\")
+                VALUES (@Badge_Type, @Badge_Description)
+                RETURNING \"badgeid\";"
+            : @"INSERT INTO Badges (Badge_Type, Badge_Description)
+                VALUES (@Badge_Type, @Badge_Description);
+                SELECT last_insert_rowid();";
 
         cmd.Parameters.Add(CreateParameter(cmd, "@Badge_Type", badge.Badge_Type));
         cmd.Parameters.Add(CreateParameter(cmd, "@Badge_Description", badge.Badge_Description));
@@ -97,9 +104,11 @@ public class BadgeRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-            INSERT INTO UserBadges (UserID, BadgeID, Date_Earned)
-            VALUES (@UserID, @BadgeID, @Date_Earned);";
+        cmd.CommandText = _provider == "postgres"
+            ? @"INSERT INTO userbadges (\"userid\", \"badgeid\", \"date_earned\")
+                VALUES (@UserID, @BadgeID, @Date_Earned);"
+            : @"INSERT INTO UserBadges (UserID, BadgeID, Date_Earned)
+                VALUES (@UserID, @BadgeID, @Date_Earned);";
 
         cmd.Parameters.Add(CreateParameter(cmd, "@UserID", userId));
         cmd.Parameters.Add(CreateParameter(cmd, "@BadgeID", badgeId));

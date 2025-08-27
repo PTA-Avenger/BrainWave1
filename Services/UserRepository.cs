@@ -30,7 +30,9 @@ public class UserRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT UserID, F_Name, L_Name, Email, Password_Hash, Role FROM Users";
+        cmd.CommandText = _provider == "postgres"
+            ? "SELECT \"userid\", \"f_name\", \"l_name\", \"email\", \"password_hash\", \"role\" FROM \"User\""
+            : "SELECT UserID, F_Name, L_Name, Email, Password_Hash, Role FROM Users";
         using var reader = await cmd.ExecuteReaderAsync();
         while (await reader.ReadAsync())
         {
@@ -52,7 +54,9 @@ public class UserRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT UserID, F_Name, L_Name, Email, Password_Hash, Role FROM Users WHERE UserID = @id";
+        cmd.CommandText = _provider == "postgres"
+            ? "SELECT \"userid\", \"f_name\", \"l_name\", \"email\", \"password_hash\", \"role\" FROM \"User\" WHERE \"userid\" = @id"
+            : "SELECT UserID, F_Name, L_Name, Email, Password_Hash, Role FROM Users WHERE UserID = @id";
         cmd.Parameters.Add(CreateParameter(cmd, "@id", id));
         using var reader = await cmd.ExecuteReaderAsync();
         if (await reader.ReadAsync())
@@ -75,7 +79,9 @@ public class UserRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT COUNT(1) FROM Users WHERE Email = @Email";
+        cmd.CommandText = _provider == "postgres"
+            ? "SELECT COUNT(1) FROM \"User\" WHERE \"email\" = @Email"
+            : "SELECT COUNT(1) FROM Users WHERE Email = @Email";
         cmd.Parameters.Add(CreateParameter(cmd, "@Email", email));
         var result = await cmd.ExecuteScalarAsync();
         return Convert.ToInt32(result) > 0;
@@ -86,10 +92,13 @@ public class UserRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-            INSERT INTO Users (F_Name, L_Name, Email, Password_Hash, Role)
-            VALUES (@F_Name, @L_Name, @Email, @Password_Hash, @Role);
-            " + (_provider == "postgres" ? "RETURNING UserID;" : "SELECT last_insert_rowid();");
+        cmd.CommandText = _provider == "postgres"
+            ? @"INSERT INTO \"User\" (\"f_name\", \"l_name\", \"email\", \"password_hash\", \"role\")
+                VALUES (@F_Name, @L_Name, @Email, @Password_Hash, @Role)
+                RETURNING \"userid\";"
+            : @"INSERT INTO Users (F_Name, L_Name, Email, Password_Hash, Role)
+                VALUES (@F_Name, @L_Name, @Email, @Password_Hash, @Role);
+                SELECT last_insert_rowid();";
 
         cmd.Parameters.Add(CreateParameter(cmd, "@F_Name", user.F_Name));
         cmd.Parameters.Add(CreateParameter(cmd, "@L_Name", user.L_Name));
@@ -116,12 +125,17 @@ public class UserRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-            UPDATE Users
-            SET F_Name = @F_Name,
-                L_Name = @L_Name,
-                Role = @Role
-            WHERE UserID = @UserID";
+        cmd.CommandText = _provider == "postgres"
+            ? @"UPDATE \"User\"
+                SET \"f_name\" = @F_Name,
+                    \"l_name\" = @L_Name,
+                    \"role\" = @Role
+                WHERE \"userid\" = @UserID"
+            : @"UPDATE Users
+                SET F_Name = @F_Name,
+                    L_Name = @L_Name,
+                    Role = @Role
+                WHERE UserID = @UserID";
         cmd.Parameters.Add(CreateParameter(cmd, "@F_Name", user.F_Name));
         cmd.Parameters.Add(CreateParameter(cmd, "@L_Name", user.L_Name));
         cmd.Parameters.Add(CreateParameter(cmd, "@Role", (object?)user.Role ?? DBNull.Value));
@@ -134,7 +148,9 @@ public class UserRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "DELETE FROM Users WHERE UserID = @UserID";
+        cmd.CommandText = _provider == "postgres"
+            ? "DELETE FROM \"User\" WHERE \"userid\" = @UserID"
+            : "DELETE FROM Users WHERE UserID = @UserID";
         cmd.Parameters.Add(CreateParameter(cmd, "@UserID", userId));
         await cmd.ExecuteNonQueryAsync();
     }
@@ -152,7 +168,9 @@ public class UserRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT UserID, F_Name, L_Name, Email, Password_Hash, Role, Profile_Picture FROM Users WHERE Email = @Email";
+        cmd.CommandText = _provider == "postgres"
+            ? "SELECT \"userid\", \"f_name\", \"l_name\", \"email\", \"password_hash\", \"role\", \"profile_picture\" FROM \"User\" WHERE \"email\" = @Email"
+            : "SELECT UserID, F_Name, L_Name, Email, Password_Hash, Role, Profile_Picture FROM Users WHERE Email = @Email";
         cmd.Parameters.Add(CreateParameter(cmd, "@Email", email));
 
         using var reader = await cmd.ExecuteReaderAsync();

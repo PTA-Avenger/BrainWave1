@@ -31,7 +31,9 @@ public class ReminderRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT ReminderID, TaskID, Reminder_Type, Notify_Time FROM Reminders WHERE TaskID = @TaskID";
+        cmd.CommandText = _provider == "postgres"
+            ? "SELECT \"reminderid\", \"taskid\", \"reminder_type\", \"notify_time\" FROM reminders WHERE \"taskid\" = @TaskID"
+            : "SELECT ReminderID, TaskID, Reminder_Type, Notify_Time FROM Reminders WHERE TaskID = @TaskID";
         cmd.Parameters.Add(CreateParameter(cmd, "@TaskID", taskId));
         using var reader = await cmd.ExecuteReaderAsync();
         while (await reader.ReadAsync())
@@ -52,7 +54,9 @@ public class ReminderRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT ReminderID, TaskID, Reminder_Type, Notify_Time FROM Reminders WHERE ReminderID = @id";
+        cmd.CommandText = _provider == "postgres"
+            ? "SELECT \"reminderid\", \"taskid\", \"reminder_type\", \"notify_time\" FROM reminders WHERE \"reminderid\" = @id"
+            : "SELECT ReminderID, TaskID, Reminder_Type, Notify_Time FROM Reminders WHERE ReminderID = @id";
         cmd.Parameters.Add(CreateParameter(cmd, "@id", id));
         using var reader = await cmd.ExecuteReaderAsync();
         if (await reader.ReadAsync())
@@ -73,10 +77,13 @@ public class ReminderRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-            INSERT INTO Reminders (TaskID, Reminder_Type, Notify_Time)
-            VALUES (@TaskID, @Reminder_Type, @Notify_Time);
-            " + (_provider == "postgres" ? "RETURNING ReminderID;" : "SELECT last_insert_rowid();");
+        cmd.CommandText = _provider == "postgres"
+            ? @"INSERT INTO reminders (\"taskid\", \"reminder_type\", \"notify_time\")
+                VALUES (@TaskID, @Reminder_Type, @Notify_Time)
+                RETURNING \"reminderid\";"
+            : @"INSERT INTO Reminders (TaskID, Reminder_Type, Notify_Time)
+                VALUES (@TaskID, @Reminder_Type, @Notify_Time);
+                SELECT last_insert_rowid();";
 
         cmd.Parameters.Add(CreateParameter(cmd, "@TaskID", reminder.TaskID));
         cmd.Parameters.Add(CreateParameter(cmd, "@Reminder_Type", reminder.Reminder_Type));
@@ -101,7 +108,9 @@ public class ReminderRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "DELETE FROM Reminders WHERE ReminderID = @id";
+        cmd.CommandText = _provider == "postgres"
+            ? "DELETE FROM reminders WHERE \"reminderid\" = @id"
+            : "DELETE FROM Reminders WHERE ReminderID = @id";
         cmd.Parameters.Add(CreateParameter(cmd, "@id", id));
         await cmd.ExecuteNonQueryAsync();
     }

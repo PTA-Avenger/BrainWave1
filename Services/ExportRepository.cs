@@ -1,4 +1,4 @@
-﻿using BrainWave.Api.Entities;
+using BrainWave.Api.Entities;
 using Microsoft.Data.Sqlite;
 using Npgsql;
 using System.Data.Common;
@@ -29,7 +29,9 @@ public class ExportRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT ExportID, UserID, TaskID, Export_Format, Date_Requested FROM Exports WHERE UserID = @UserID";
+        cmd.CommandText = _provider == "postgres"
+            ? "SELECT \"exportid\", \"userid\", \"taskid\", \"export_format\", \"date_requested\" FROM exports WHERE \"userid\" = @UserID"
+            : "SELECT ExportID, UserID, TaskID, Export_Format, Date_Requested FROM Exports WHERE UserID = @UserID";
         cmd.Parameters.Add(CreateParameter(cmd, "@UserID", userId));
 
         using var reader = await cmd.ExecuteReaderAsync();
@@ -52,10 +54,13 @@ public class ExportRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-            INSERT INTO Exports (UserID, TaskID, Export_Format, Date_Requested)
-            VALUES (@UserID, @TaskID, @Export_Format, @Date_Requested);
-            " + (_provider == "postgres" ? "RETURNING ExportID;" : "SELECT last_insert_rowid();");
+        cmd.CommandText = _provider == "postgres"
+            ? @"INSERT INTO exports (\"userid\", \"taskid\", \"export_format\", \"date_requested\")
+                VALUES (@UserID, @TaskID, @Export_Format, @Date_Requested)
+                RETURNING \"exportid\";"
+            : @"INSERT INTO Exports (UserID, TaskID, Export_Format, Date_Requested)
+                VALUES (@UserID, @TaskID, @Export_Format, @Date_Requested);
+                SELECT last_insert_rowid();";
 
         cmd.Parameters.Add(CreateParameter(cmd, "@UserID", export.UserID));
         cmd.Parameters.Add(CreateParameter(cmd, "@TaskID", export.TaskID));
