@@ -43,25 +43,25 @@ namespace BrainWave.App.ViewModels
         [RelayCommand]
         private async Task GoToTasksAsync()
         {
-            await Shell.Current.GoToAsync(nameof(Views.TaskListPage));
+            await Shell.Current.GoToAsync("//Tasks");
         }
 
         [RelayCommand]
         private async Task GoToRemindersAsync()
         {
-            await Shell.Current.GoToAsync(nameof(Views.ReminderPage));
+            await Shell.Current.GoToAsync("//Reminders");
         }
 
         [RelayCommand]
         private async Task GoToBadgesAsync()
         {
-            await Shell.Current.GoToAsync(nameof(Views.BadgePage));
+            await Shell.Current.GoToAsync("//Badges");
         }
 
         [RelayCommand]
         private async Task GoToCollabAsync()
         {
-            await Shell.Current.GoToAsync(nameof(Views.CollaborationPage));
+            await Shell.Current.GoToAsync("//Collab");
         }
 
         [RelayCommand]
