@@ -1,4 +1,4 @@
-﻿using BrainWave.App.Models;
+using BrainWave.App.Models;
 using BrainWave.App.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -36,6 +36,9 @@ namespace BrainWave.App.ViewModels
 
         [ObservableProperty]
         private string _confirmPassword;
+
+        [ObservableProperty]
+        private string _role = "User";
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(HasError))]
@@ -77,7 +80,7 @@ namespace BrainWave.App.ViewModels
 
             try
             {
-                var req = new RegisterRequest(_firstName, LastName, Email, Password, null);
+                var req = new RegisterRequest(_firstName, LastName, Email, Password, Role);
                 var result = await _apiService.RegisterAsync(req);
 
                 if (result == null)

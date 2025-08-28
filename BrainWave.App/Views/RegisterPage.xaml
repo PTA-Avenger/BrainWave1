@@ -19,6 +19,10 @@
                 <Entry Placeholder="Email" Text="{Binding Email}" Keyboard="Email" />
                 <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True" />
                 <Entry Placeholder="Confirm Password" Text="{Binding ConfirmPassword}" IsPassword="True" />
+                <Picker Title="Role" SelectedItem="{Binding Role}">
+                    <x:String>User</x:String>
+                    <x:String>Admin</x:String>
+                </Picker>
             </VerticalStackLayout>
         </Frame>
         <VerticalStackLayout Grid.Row="2" Spacing="8">
