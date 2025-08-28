@@ -40,6 +40,20 @@ namespace BrainWave.App.ViewModels
         [ObservableProperty]
         private string _role = "User";
 
+        // Radio button bindings
+        [ObservableProperty]
+        private bool _isStudent;
+
+        [ObservableProperty]
+        private bool _isProfessional;
+
+        [ObservableProperty]
+        private bool _isAdmin;
+
+        // Optional profile picture
+        [ObservableProperty]
+        private string _profilePicturePath;
+
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(HasError))]
         private string _errorMessage;
@@ -80,7 +94,8 @@ namespace BrainWave.App.ViewModels
 
             try
             {
-                var req = new RegisterRequest(_firstName, LastName, Email, Password, Role);
+                var selectedRole = IsAdmin ? "Admin" : (IsStudent ? "Student" : (IsProfessional ? "Professional" : Role));
+                var req = new RegisterRequest(_firstName, LastName, Email, Password, selectedRole, ProfilePicturePath);
                 var result = await _apiService.RegisterAsync(req);
 
                 if (result == null)
