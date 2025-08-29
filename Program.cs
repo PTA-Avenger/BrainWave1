@@ -37,6 +37,7 @@ builder.Services.AddSingleton<ReminderRepository>();
 builder.Services.AddSingleton<ExportRepository>();
 builder.Services.AddSingleton<BadgeRepository>();
 builder.Services.AddSingleton<CollaborationRepository>();
+builder.Services.AddScoped<BrainWave.API.Services.IEmailService, BrainWave.API.Services.EmailService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

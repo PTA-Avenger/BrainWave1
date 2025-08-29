@@ -3,45 +3,300 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BrainWave.App.Views.DashboardPage"
              Title="Dashboard">
-    <ScrollView>
-        <VerticalStackLayout Padding="16" Spacing="16">
-            <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
-                <Label Text="{Binding WelcomeMessage}" Style="{StaticResource Heading1}" />
-                <Button Grid.Column="1" Text="Profile" Command="{Binding GoToProfileCommand}" Style="{StaticResource GhostButton}" />
-            </Grid>
+    
+    <Grid RowDefinitions="Auto,*">
+        <!-- Header -->
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Padding="16" BackgroundColor="{StaticResource Primary}">
+            <Label Text="{Binding WelcomeMessage}" 
+                   Style="{StaticResource Heading1}" 
+                   TextColor="White" />
+            <Button Grid.Column="1" 
+                    Text="Admin" 
+                    Command="{Binding GoToAdminCommand}" 
+                    BackgroundColor="Transparent"
+                    BorderColor="White"
+                    BorderWidth="1"
+                    TextColor="White"
+                    FontSize="12"
+                    Padding="8,4" />
+        </Grid>
 
-            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
-                <Frame Style="{StaticResource Card}">
-                    <VerticalStackLayout>
-                        <Label Text="Latest Note" Style="{StaticResource Heading2}" />
-                        <Label Text="{Binding LatestNote}" />
+        <!-- Tabbed Content -->
+        <TabView Grid.Row="1" TabStripPlacement="Bottom">
+            
+            <!-- Tasks Tab -->
+            <Tab Title="Tasks" Icon="task.png">
+                <ScrollView>
+                    <VerticalStackLayout Padding="16" Spacing="12">
+                        <!-- Filter Controls -->
+                        <Frame Style="{StaticResource Card}">
+                            <Grid ColumnDefinitions="*,*,Auto" ColumnSpacing="8">
+                                <Picker x:Name="StatusPicker" 
+                                        Title="Filter by Status"
+                                        SelectedIndexChanged="OnStatusFilterChanged">
+                                    <Picker.Items>
+                                        <x:String>All</x:String>
+                                        <x:String>Pending</x:String>
+                                        <x:String>InProgress</x:String>
+                                        <x:String>Completed</x:String>
+                                        <x:String>Cancelled</x:String>
+                                    </Picker.Items>
+                                </Picker>
+                                
+                                <Picker x:Name="PriorityPicker" 
+                                        Grid.Column="1"
+                                        Title="Filter by Priority"
+                                        SelectedIndexChanged="OnPriorityFilterChanged">
+                                    <Picker.Items>
+                                        <x:String>All</x:String>
+                                        <x:String>Low</x:String>
+                                        <x:String>Medium</x:String>
+                                        <x:String>High</x:String>
+                                    </Picker.Items>
+                                </Picker>
+                                
+                                <Button Grid.Column="2" 
+                                        Text="+" 
+                                        Command="{Binding CreateTaskCommand}"
+                                        WidthRequest="40"
+                                        HeightRequest="40" />
+                            </Grid>
+                        </Frame>
+
+                        <!-- Tasks List -->
+                        <CollectionView ItemsSource="{Binding FilteredTasks}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Style="{StaticResource Card}" Margin="0,4">
+                                        <Grid ColumnDefinitions="*,Auto,Auto,Auto" RowDefinitions="Auto,Auto,Auto">
+                                            <Label Grid.Column="0" Grid.Row="0" 
+                                                   Text="{Binding Title}" 
+                                                   Style="{StaticResource Heading3}" />
+                                            <Label Grid.Column="1" Grid.Row="0" 
+                                                   Text="{Binding Priority_Level}" 
+                                                   BackgroundColor="{Binding PriorityColor}"
+                                                   TextColor="White"
+                                                   Padding="8,2"
+                                                   FontSize="12" />
+                                            <Label Grid.Column="2" Grid.Row="0" 
+                                                   Text="{Binding Task_Status}" 
+                                                   BackgroundColor="{Binding StatusColor}"
+                                                   TextColor="White"
+                                                   Padding="8,2"
+                                                   FontSize="12" />
+                                            
+                                            <Label Grid.Column="0" Grid.Row="1" 
+                                                   Text="{Binding Description}" 
+                                                   MaxLines="2" />
+                                            
+                                            <HorizontalStackLayout Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Spacing="8">
+                                                <Button Text="Edit" 
+                                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.EditTaskCommand}" 
+                                                        CommandParameter="{Binding .}"
+                                                        FontSize="12" />
+                                                <Button Text="Share" 
+                                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ShareTaskCommand}" 
+                                                        CommandParameter="{Binding .}"
+                                                        FontSize="12" />
+                                                <Button Text="Export" 
+                                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ExportTaskCommand}" 
+                                                        CommandParameter="{Binding .}"
+                                                        FontSize="12" />
+                                                <Button Text="Delete" 
+                                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteTaskCommand}" 
+                                                        CommandParameter="{Binding .}"
+                                                        BackgroundColor="Red"
+                                                        FontSize="12" />
+                                            </HorizontalStackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
                     </VerticalStackLayout>
-                </Frame>
-                <Frame Style="{StaticResource Card}" Grid.Column="1">
-                    <VerticalStackLayout>
-                        <Label Text="Most Urgent Task" Style="{StaticResource Heading2}" />
-                        <Label Text="{Binding MostUrgentTask}" />
+                </ScrollView>
+            </Tab>
+
+            <!-- Collaborations Tab -->
+            <Tab Title="Collaborations" Icon="collaboration.png">
+                <ScrollView>
+                    <VerticalStackLayout Padding="16" Spacing="12">
+                        <Frame Style="{StaticResource Card}">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Entry x:Name="PinEntry" 
+                                       Placeholder="Enter collaboration PIN"
+                                       MaxLength="6" />
+                                <Button Grid.Column="1" 
+                                        Text="Join" 
+                                        Command="{Binding JoinCollaborationCommand}"
+                                        CommandParameter="{Binding Source={x:Reference PinEntry}, Path=Text}" />
+                            </Grid>
+                        </Frame>
+
+                        <CollectionView ItemsSource="{Binding Collaborations}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Style="{StaticResource Card}" Margin="0,4">
+                                        <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto">
+                                            <Label Grid.Column="0" Grid.Row="0" 
+                                                   Text="{Binding Collaboration_Title}" 
+                                                   Style="{StaticResource Heading3}" />
+                                            <Label Grid.Column="1" Grid.Row="0" 
+                                                   Text="{Binding InvitePin}" 
+                                                   BackgroundColor="{StaticResource Primary}"
+                                                   TextColor="White"
+                                                   Padding="8,4"
+                                                   FontFamily="Courier" />
+                                            
+                                            <Label Grid.Column="0" Grid.Row="1" 
+                                                   Text="{Binding Collaboration_Description}" />
+                                            
+                                            <Label Grid.Column="0" Grid.Row="2" 
+                                                   Text="{Binding CollaboratorsText}" 
+                                                   FontSize="12"
+                                                   TextColor="Gray" />
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
                     </VerticalStackLayout>
-                </Frame>
-            </Grid>
+                </ScrollView>
+            </Tab>
 
-            <Frame Style="{StaticResource Card}">
-                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
-                    <Label Text="Streak" Style="{StaticResource Heading2}" />
-                    <Label Grid.Column="1" Text="{Binding StreakCount}" />
-                </Grid>
-            </Frame>
+            <!-- Reminders Tab -->
+            <Tab Title="Reminders" Icon="reminder.png">
+                <ScrollView>
+                    <VerticalStackLayout Padding="16" Spacing="12">
+                        <Button Text="Add Reminder" 
+                                Command="{Binding CreateReminderCommand}" />
 
-            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
-                <Button Text="Tasks" Command="{Binding GoToTasksCommand}" />
-                <Button Grid.Column="1" Text="Reminders" Command="{Binding GoToRemindersCommand}" />
-            </Grid>
-            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
-                <Button Text="Badges" Command="{Binding GoToBadgesCommand}" />
-                <Button Grid.Column="1" Text="Collaborations" Command="{Binding GoToCollabCommand}" />
-            </Grid>
+                        <CollectionView ItemsSource="{Binding Reminders}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Style="{StaticResource Card}" Margin="0,4">
+                                        <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
+                                            <Label Grid.Column="0" Grid.Row="0" 
+                                                   Text="{Binding TaskTitle}" 
+                                                   Style="{StaticResource Heading3}" />
+                                            <Label Grid.Column="1" Grid.Row="0" 
+                                                   Text="{Binding Reminder_Type}" 
+                                                   BackgroundColor="{StaticResource Secondary}"
+                                                   TextColor="White"
+                                                   Padding="8,2"
+                                                   FontSize="12" />
+                                            
+                                            <Label Grid.Column="0" Grid.Row="1" 
+                                                   Text="{Binding Notify_Time, StringFormat='Notify at: {0:MM/dd/yyyy HH:mm}'}" />
+                                            
+                                            <Button Grid.Column="1" Grid.Row="1" 
+                                                    Text="Delete" 
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteReminderCommand}" 
+                                                    CommandParameter="{Binding .}"
+                                                    BackgroundColor="Red"
+                                                    FontSize="12" />
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </ScrollView>
+            </Tab>
 
-            <Button Text="Refresh" Command="{Binding LoadDashboardCommand}" IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}" />
-        </VerticalStackLayout>
-    </ScrollView>
+            <!-- Exports Tab -->
+            <Tab Title="Exports" Icon="export.png">
+                <ScrollView>
+                    <VerticalStackLayout Padding="16" Spacing="12">
+                        <Label Text="Export History" 
+                               Style="{StaticResource Heading2}" />
+
+                        <CollectionView ItemsSource="{Binding Exports}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Style="{StaticResource Card}" Margin="0,4">
+                                        <Grid ColumnDefinitions="*,Auto,Auto" RowDefinitions="Auto,Auto">
+                                            <Label Grid.Column="0" Grid.Row="0" 
+                                                   Text="{Binding TaskTitle}" 
+                                                   Style="{StaticResource Heading3}" />
+                                            <Label Grid.Column="1" Grid.Row="0" 
+                                                   Text="{Binding Export_Format}" 
+                                                   BackgroundColor="{StaticResource Tertiary}"
+                                                   TextColor="White"
+                                                   Padding="8,2"
+                                                   FontSize="12" />
+                                            
+                                            <Label Grid.Column="0" Grid.Row="1" 
+                                                   Text="{Binding Date_Requested, StringFormat='Exported on: {0:MM/dd/yyyy HH:mm}'}" />
+                                            
+                                            <Button Grid.Column="2" Grid.Row="1" 
+                                                    Text="Download" 
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DownloadExportCommand}" 
+                                                    CommandParameter="{Binding .}"
+                                                    FontSize="12" />
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </ScrollView>
+            </Tab>
+
+            <!-- Profile Tab -->
+            <Tab Title="Profile" Icon="profile.png">
+                <ScrollView>
+                    <VerticalStackLayout Padding="16" Spacing="12">
+                        <Frame Style="{StaticResource Card}">
+                            <VerticalStackLayout Spacing="12">
+                                <Label Text="Profile Information" 
+                                       Style="{StaticResource Heading2}" />
+                                
+                                <Entry x:Name="FirstNameEntry" 
+                                       Text="{Binding User.F_Name}" 
+                                       Placeholder="First Name" />
+                                
+                                <Entry x:Name="LastNameEntry" 
+                                       Text="{Binding User.L_Name}" 
+                                       Placeholder="Last Name" />
+                                
+                                <Entry x:Name="EmailEntry" 
+                                       Text="{Binding User.Email}" 
+                                       Placeholder="Email" 
+                                       Keyboard="Email" />
+                                
+                                <Entry x:Name="PhoneEntry" 
+                                       Text="{Binding User.Phone}" 
+                                       Placeholder="Phone" 
+                                       Keyboard="Telephone" />
+                                
+                                <Editor x:Name="BioEditor" 
+                                        Text="{Binding User.Bio}" 
+                                        Placeholder="Bio" 
+                                        HeightRequest="100" />
+                                
+                                <Button Text="Update Profile" 
+                                        Command="{Binding UpdateProfileCommand}" />
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <Frame Style="{StaticResource Card}">
+                            <VerticalStackLayout Spacing="12">
+                                <Label Text="Account Actions" 
+                                       Style="{StaticResource Heading2}" />
+                                
+                                <Button Text="Deactivate Account" 
+                                        Command="{Binding DeactivateAccountCommand}"
+                                        BackgroundColor="Orange" />
+                                
+                                <Button Text="Delete Account" 
+                                        Command="{Binding DeleteAccountCommand}"
+                                        BackgroundColor="Red" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </VerticalStackLayout>
+                </ScrollView>
+            </Tab>
+        </TabView>
+    </Grid>
 </ContentPage>

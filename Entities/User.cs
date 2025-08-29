@@ -1,4 +1,4 @@
-﻿using BrainWave.Api.Entities;
+using BrainWave.Api.Entities;
 
 namespace BrainWave.API.Entities
 {
@@ -11,6 +11,11 @@ namespace BrainWave.API.Entities
         public string Password_Hash { get; set; } = "";
         public string? Role { get; set; }
         public string? Profile_Picture { get; set; }
+        public string? Phone { get; set; }
+        public string? Bio { get; set; }
+        public DateTime Created_Date { get; set; } = DateTime.UtcNow;
+        public DateTime? Updated_Date { get; set; }
+        public bool IsActive { get; set; } = true;
 
         // Navigation
         public ICollection<Tasks> Tasks { get; set; } = new List<Tasks>();
