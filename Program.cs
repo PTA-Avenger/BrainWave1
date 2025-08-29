@@ -14,6 +14,7 @@ var csPg = builder.Configuration.GetConnectionString("Postgres");
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
 var jwt = builder.Configuration.GetSection("Jwt").Get<JwtSettings>()!;
 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Key));
+builder.Services.AddSingleton<DatabaseInitializer>();
 builder.Services.AddSingleton<UserRepository>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(o =>
@@ -47,6 +48,19 @@ builder.Services.AddCors(opt =>
 });
 
 var app = builder.Build();
+
+// Initialize database
+try
+{
+    using var scope = app.Services.CreateScope();
+    var dbInitializer = scope.ServiceProvider.GetRequiredService<DatabaseInitializer>();
+    await dbInitializer.InitializeDatabaseAsync();
+}
+catch (Exception ex)
+{
+    // Log the error but continue with the application startup
+    Console.WriteLine($"Database initialization failed: {ex.Message}");
+}
 
 if (app.Environment.IsDevelopment())
 {
