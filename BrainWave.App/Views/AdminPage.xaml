@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BrainWave.App.Views.AdminPage"
+             Title="Admin Panel">
+    
+    <Grid RowDefinitions="Auto,*">
+        <!-- Header -->
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Padding="16" BackgroundColor="DarkRed">
+            <Label Text="Admin Panel" 
+                   Style="{StaticResource Heading1}" 
+                   TextColor="White" />
+            <Button Grid.Column="1" 
+                    Text="Logout" 
+                    Command="{Binding LogoutCommand}" 
+                    BackgroundColor="Transparent"
+                    BorderColor="White"
+                    BorderWidth="1"
+                    TextColor="White"
+                    FontSize="12"
+                    Padding="8,4" />
+        </Grid>
+
+        <!-- Content -->
+        <Grid Grid.Row="1" IsVisible="{Binding IsLoggedIn}">
+            <TabView TabStripPlacement="Top">
+                
+                <!-- Users Management Tab -->
+                <Tab Title="Users">
+                    <ScrollView>
+                        <VerticalStackLayout Padding="16" Spacing="12">
+                            <!-- Filter Controls -->
+                            <Frame Style="{StaticResource Card}">
+                                <Grid ColumnDefinitions="*,*,Auto" ColumnSpacing="8">
+                                    <Picker x:Name="UserRolePicker" 
+                                            Title="Filter by Role"
+                                            SelectedIndexChanged="OnUserRoleFilterChanged">
+                                        <Picker.Items>
+                                            <x:String>All</x:String>
+                                            <x:String>User</x:String>
+                                            <x:String>Admin</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+                                    
+                                    <Picker x:Name="UserStatusPicker" 
+                                            Grid.Column="1"
+                                            Title="Filter by Status"
+                                            SelectedIndexChanged="OnUserStatusFilterChanged">
+                                        <Picker.Items>
+                                            <x:String>All</x:String>
+                                            <x:String>Active</x:String>
+                                            <x:String>Inactive</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+                                    
+                                    <Button Grid.Column="2" 
+                                            Text="Refresh" 
+                                            Command="{Binding RefreshUsersCommand}"
+                                            FontSize="12" />
+                                </Grid>
+                            </Frame>
+
+                            <!-- Users List -->
+                            <CollectionView ItemsSource="{Binding FilteredUsers}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame Style="{StaticResource Card}" Margin="0,4">
+                                            <Grid ColumnDefinitions="*,Auto,Auto" RowDefinitions="Auto,Auto,Auto,Auto">
+                                                <Label Grid.Column="0" Grid.Row="0" 
+                                                       Text="{Binding FullName}" 
+                                                       Style="{StaticResource Heading3}" />
+                                                <Label Grid.Column="1" Grid.Row="0" 
+                                                       Text="{Binding Role}" 
+                                                       BackgroundColor="{StaticResource Primary}"
+                                                       TextColor="White"
+                                                       Padding="8,2"
+                                                       FontSize="12" />
+                                                <Label Grid.Column="2" Grid.Row="0" 
+                                                       Text="{Binding IsActive, Converter={StaticResource ActiveStatusConverter}}" 
+                                                       BackgroundColor="{Binding IsActive, Converter={StaticResource ActiveColorConverter}}"
+                                                       TextColor="White"
+                                                       Padding="8,2"
+                                                       FontSize="12" />
+                                                
+                                                <Label Grid.Column="0" Grid.Row="1" 
+                                                       Text="{Binding Email}" 
+                                                       TextColor="Gray" />
+                                                
+                                                <Label Grid.Column="0" Grid.Row="2" 
+                                                       Text="{Binding Phone}" 
+                                                       TextColor="Gray" />
+                                                
+                                                <HorizontalStackLayout Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Spacing="8">
+                                                    <Button Text="Edit" 
+                                                            Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.EditUserCommand}" 
+                                                            CommandParameter="{Binding .}"
+                                                            FontSize="12" />
+                                                    <Button Text="Tasks" 
+                                                            Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ViewUserTasksCommand}" 
+                                                            CommandParameter="{Binding .}"
+                                                            FontSize="12" />
+                                                    <Button Text="Delete" 
+                                                            Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteUserCommand}" 
+                                                            CommandParameter="{Binding .}"
+                                                            BackgroundColor="Red"
+                                                            FontSize="12" />
+                                                </HorizontalStackLayout>
+                                            </Grid>
+                                        </Frame>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </Tab>
+
+                <!-- Tasks Management Tab -->
+                <Tab Title="Tasks">
+                    <ScrollView>
+                        <VerticalStackLayout Padding="16" Spacing="12">
+                            <!-- Filter Controls -->
+                            <Frame Style="{StaticResource Card}">
+                                <Grid ColumnDefinitions="*,*,Auto" ColumnSpacing="8">
+                                    <Picker x:Name="AdminTaskStatusPicker" 
+                                            Title="Filter by Status"
+                                            SelectedIndexChanged="OnAdminTaskStatusFilterChanged">
+                                        <Picker.Items>
+                                            <x:String>All</x:String>
+                                            <x:String>Pending</x:String>
+                                            <x:String>InProgress</x:String>
+                                            <x:String>Completed</x:String>
+                                            <x:String>Cancelled</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+                                    
+                                    <Picker x:Name="AdminTaskPriorityPicker" 
+                                            Grid.Column="1"
+                                            Title="Filter by Priority"
+                                            SelectedIndexChanged="OnAdminTaskPriorityFilterChanged">
+                                        <Picker.Items>
+                                            <x:String>All</x:String>
+                                            <x:String>Low</x:String>
+                                            <x:String>Medium</x:String>
+                                            <x:String>High</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+                                    
+                                    <Button Grid.Column="2" 
+                                            Text="Refresh" 
+                                            Command="{Binding RefreshTasksCommand}"
+                                            FontSize="12" />
+                                </Grid>
+                            </Frame>
+
+                            <!-- Tasks List -->
+                            <CollectionView ItemsSource="{Binding FilteredTasks}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame Style="{StaticResource Card}" Margin="0,4">
+                                            <Grid ColumnDefinitions="*,Auto,Auto" RowDefinitions="Auto,Auto,Auto,Auto">
+                                                <Label Grid.Column="0" Grid.Row="0" 
+                                                       Text="{Binding Title}" 
+                                                       Style="{StaticResource Heading3}" />
+                                                <Label Grid.Column="1" Grid.Row="0" 
+                                                       Text="{Binding Priority_Level}" 
+                                                       BackgroundColor="{Binding PriorityColor}"
+                                                       TextColor="White"
+                                                       Padding="8,2"
+                                                       FontSize="12" />
+                                                <Label Grid.Column="2" Grid.Row="0" 
+                                                       Text="{Binding Task_Status}" 
+                                                       BackgroundColor="{Binding StatusColor}"
+                                                       TextColor="White"
+                                                       Padding="8,2"
+                                                       FontSize="12" />
+                                                
+                                                <Label Grid.Column="0" Grid.Row="1" 
+                                                       Text="{Binding UserName}" 
+                                                       TextColor="Gray"
+                                                       FontSize="12" />
+                                                
+                                                <Label Grid.Column="0" Grid.Row="2" 
+                                                       Text="{Binding Description}" 
+                                                       MaxLines="2" />
+                                                
+                                                <HorizontalStackLayout Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Spacing="8">
+                                                    <Button Text="Edit" 
+                                                            Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.EditTaskCommand}" 
+                                                            CommandParameter="{Binding .}"
+                                                            FontSize="12" />
+                                                    <Button Text="Delete" 
+                                                            Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteTaskCommand}" 
+                                                            CommandParameter="{Binding .}"
+                                                            BackgroundColor="Red"
+                                                            FontSize="12" />
+                                                </HorizontalStackLayout>
+                                            </Grid>
+                                        </Frame>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </Tab>
+            </TabView>
+        </Grid>
+
+        <!-- Login Form -->
+        <VerticalStackLayout Grid.Row="1" 
+                             Padding="16" 
+                             Spacing="12" 
+                             IsVisible="{Binding IsLoggedIn, Converter={StaticResource InverseBoolConverter}}"
+                             VerticalOptions="Center">
+            <Frame Style="{StaticResource Card}">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Admin Login" 
+                           Style="{StaticResource Heading2}" 
+                           HorizontalOptions="Center" />
+                    
+                    <Entry x:Name="UsernameEntry" 
+                           Text="{Binding Username}" 
+                           Placeholder="Username" />
+                    
+                    <Entry x:Name="PasswordEntry" 
+                           Text="{Binding Password}" 
+                           Placeholder="Password" 
+                           IsPassword="True" />
+                    
+                    <Button Text="Login" 
+                            Command="{Binding LoginCommand}" 
+                            IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}" />
+                    
+                    <Label Text="{Binding ErrorMessage}" 
+                           TextColor="Red" 
+                           IsVisible="{Binding HasError}" />
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

@@ -190,4 +190,64 @@ public class UserRepository
         return null;
     }
 
+    public async Task<List<BrainWave.Api.DTOs.UserDtos>> GetFilteredUsersAsync(BrainWave.Api.DTOs.UserFilterDto? filter = null)
+    {
+        var users = new List<BrainWave.Api.DTOs.UserDtos>();
+        using var conn = CreateConnection();
+        await conn.OpenAsync();
+        using var cmd = conn.CreateCommand();
+
+        var whereClause = "";
+        var parameters = new List<DbParameter>();
+
+        if (!string.IsNullOrEmpty(filter?.Role))
+        {
+            whereClause = "WHERE \"role\" = @role";
+            var roleParam = cmd.CreateParameter();
+            roleParam.ParameterName = "@role";
+            roleParam.Value = filter.Role;
+            parameters.Add(roleParam);
+        }
+
+        if (filter?.IsActive.HasValue == true)
+        {
+            whereClause += (whereClause.Length > 0 ? " AND " : "WHERE ") + "\"isactive\" = @isActive";
+            var activeParam = cmd.CreateParameter();
+            activeParam.ParameterName = "@isActive";
+            activeParam.Value = filter.IsActive.Value;
+            parameters.Add(activeParam);
+        }
+
+        var orderBy = $"ORDER BY \"{filter?.SortBy?.ToLower() ?? "created_date"}\" {(filter?.SortDescending == true ? "DESC" : "ASC")}";
+        
+        cmd.CommandText = _provider == "postgres"
+            ? $"SELECT \"userid\", \"f_name\", \"l_name\", \"email\", \"role\", \"profile_picture\", \"phone\", \"bio\", \"created_date\", \"updated_date\", \"isactive\" FROM users {whereClause} {orderBy}"
+            : $"SELECT UserID, F_Name, L_Name, Email, Role, Profile_Picture, Phone, Bio, Created_Date, Updated_Date, IsActive FROM Users {whereClause.Replace("\"", "")} {orderBy.Replace("\"", "")}";
+
+        foreach (var param in parameters)
+        {
+            cmd.Parameters.Add(param);
+        }
+
+        using var reader = await cmd.ExecuteReaderAsync();
+        while (await reader.ReadAsync())
+        {
+            users.Add(new BrainWave.Api.DTOs.UserDtos
+            {
+                UserID = reader.GetInt32(0),
+                F_Name = reader.GetString(1),
+                L_Name = reader.GetString(2),
+                Email = reader.GetString(3),
+                Role = reader.IsDBNull(4) ? null : reader.GetString(4),
+                Profile_Picture = reader.IsDBNull(5) ? null : reader.GetString(5),
+                Phone = reader.IsDBNull(6) ? null : reader.GetString(6),
+                Bio = reader.IsDBNull(7) ? null : reader.GetString(7),
+                Created_Date = reader.IsDBNull(8) ? DateTime.UtcNow : reader.GetDateTime(8),
+                Updated_Date = reader.IsDBNull(9) ? null : reader.GetDateTime(9),
+                IsActive = reader.IsDBNull(10) ? true : reader.GetBoolean(10)
+            });
+        }
+        return users;
+    }
+
 }

@@ -1,4 +1,4 @@
-﻿using BrainWave.Api.Entities;
+using BrainWave.Api.Entities;
 using System;
 using System.Collections.Generic;
 
@@ -11,8 +11,12 @@ namespace BrainWave.API.Entities
         public string Title { get; set; } = "";
         public string? Description { get; set; }
         public DateTime? Due_Date { get; set; }
-        public string? Task_Status { get; set; }
-        public string? Priority_Level { get; set; }
+        public TaskStatus Task_Status { get; set; } = TaskStatus.Pending;
+        public TaskPriority Priority_Level { get; set; } = TaskPriority.Medium;
+        public DateTime Created_Date { get; set; } = DateTime.UtcNow;
+        public DateTime? Updated_Date { get; set; }
+        public bool IsShared { get; set; } = false;
+        public string? ShareToken { get; set; }
 
         // Navigation properties
         public User? User { get; set; }
