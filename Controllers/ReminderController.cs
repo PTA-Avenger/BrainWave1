@@ -1,10 +1,8 @@
-﻿using BrainWave.Api.DTOs;
+using BrainWave.Api.DTOs;
 using BrainWave.Api.Entities;
-using BrainWave.API.DTOs;
-using BrainWave.API.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BrainWave.API.Controllers
+namespace BrainWave.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
