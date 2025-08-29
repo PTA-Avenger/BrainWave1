@@ -1,5 +1,6 @@
 using BrainWave.App.Views;
 using BrainWave.App.Services;
+using Microsoft.Maui.ApplicationModel;
 
 namespace BrainWave.App
 {
@@ -13,6 +14,11 @@ namespace BrainWave.App
             InitializeComponent();
             MainPage = new AppShell();
             _ = _sync.StartAsync();
+
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                await Shell.Current.GoToAsync("//Login");
+            });
         }
     }
 }

@@ -37,6 +37,7 @@ public static class MauiProgram
         builder.Services.AddTransient<ReminderViewModel>();
         builder.Services.AddTransient<BadgeViewModel>();
         builder.Services.AddTransient<BrainWave.App.ViewModels.CollaborationViewModel>();
+        builder.Services.AddTransient<ProfileViewModel>();
 
 
         // Pages
@@ -48,6 +49,7 @@ public static class MauiProgram
         builder.Services.AddTransient<ReminderPage>();
         builder.Services.AddTransient<BadgePage>();
         builder.Services.AddTransient<CollaborationPage>();
+        builder.Services.AddTransient<ProfilePage>();
 
 
         return builder.Build();

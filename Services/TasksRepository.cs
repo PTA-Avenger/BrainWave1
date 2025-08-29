@@ -30,7 +30,9 @@ public class TasksRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT TaskID, UserID, Title, Description, Due_Date, Task_Status, Priority_Level FROM Tasks WHERE UserID = @userId";
+        cmd.CommandText = _provider == "postgres"
+            ? "SELECT \"taskid\", \"userid\", \"title\", \"description\", \"due_date\", \"task_status\", \"priority_level\" FROM tasks WHERE \"userid\" = @userId"
+            : "SELECT TaskID, UserID, Title, Description, Due_Date, Task_Status, Priority_Level FROM Tasks WHERE UserID = @userId";
         var param = cmd.CreateParameter();
         param.ParameterName = "@userId";
         param.Value = userId;
@@ -58,7 +60,9 @@ public class TasksRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT TaskID, UserID, Title, Description, Due_Date, Task_Status, Priority_Level FROM Tasks WHERE TaskID = @id";
+        cmd.CommandText = _provider == "postgres"
+            ? "SELECT \"taskid\", \"userid\", \"title\", \"description\", \"due_date\", \"task_status\", \"priority_level\" FROM tasks WHERE \"taskid\" = @id"
+            : "SELECT TaskID, UserID, Title, Description, Due_Date, Task_Status, Priority_Level FROM Tasks WHERE TaskID = @id";
         var param = cmd.CreateParameter();
         param.ParameterName = "@id";
         param.Value = id;
@@ -86,10 +90,13 @@ public class TasksRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-            INSERT INTO Tasks (UserID, Title, Description, Due_Date, Task_Status, Priority_Level)
-            VALUES (@UserID, @Title, @Description, @Due_Date, @Task_Status, @Priority_Level);
-            " + (_provider == "postgres" ? "RETURNING TaskID;" : "SELECT last_insert_rowid();");
+        cmd.CommandText = _provider == "postgres"
+            ? @"INSERT INTO tasks (\"userid\", \"title\", \"description\", \"due_date\", \"task_status\", \"priority_level\")
+                VALUES (@UserID, @Title, @Description, @Due_Date, @Task_Status, @Priority_Level)
+                RETURNING \"taskid\";"
+            : @"INSERT INTO Tasks (UserID, Title, Description, Due_Date, Task_Status, Priority_Level)
+                VALUES (@UserID, @Title, @Description, @Due_Date, @Task_Status, @Priority_Level);
+                SELECT last_insert_rowid();";
 
         cmd.Parameters.Add(CreateParameter(cmd, "@UserID", task.UserID));
         cmd.Parameters.Add(CreateParameter(cmd, "@Title", task.Title));
@@ -117,14 +124,21 @@ public class TasksRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-        UPDATE Tasks
-        SET Title = @Title,
-            Description = @Description,
-            Due_Date = @Due_Date,
-            Task_Status = @Task_Status,
-            Priority_Level = @Priority_Level
-        WHERE TaskID = @TaskID";
+        cmd.CommandText = _provider == "postgres"
+            ? @"UPDATE tasks
+                SET \"title\" = @Title,
+                    \"description\" = @Description,
+                    \"due_date\" = @Due_Date,
+                    \"task_status\" = @Task_Status,
+                    \"priority_level\" = @Priority_Level
+                WHERE \"taskid\" = @TaskID"
+            : @"UPDATE Tasks
+                SET Title = @Title,
+                    Description = @Description,
+                    Due_Date = @Due_Date,
+                    Task_Status = @Task_Status,
+                    Priority_Level = @Priority_Level
+                WHERE TaskID = @TaskID";
         cmd.Parameters.Add(CreateParameter(cmd, "@Title", task.Title));
         cmd.Parameters.Add(CreateParameter(cmd, "@Description", (object?)task.Description ?? DBNull.Value));
         cmd.Parameters.Add(CreateParameter(cmd, "@Due_Date", (object?)task.Due_Date ?? DBNull.Value));
@@ -139,7 +153,9 @@ public class TasksRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "DELETE FROM Tasks WHERE TaskID = @TaskID";
+        cmd.CommandText = _provider == "postgres"
+            ? "DELETE FROM tasks WHERE \"taskid\" = @TaskID"
+            : "DELETE FROM Tasks WHERE TaskID = @TaskID";
         cmd.Parameters.Add(CreateParameter(cmd, "@TaskID", task.TaskID));
         await cmd.ExecuteNonQueryAsync();
     }
@@ -158,7 +174,9 @@ public class TasksRepository
         using var conn = CreateConnection();
         await conn.OpenAsync();
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT TaskID, UserID, Title, Description, Due_Date, Task_Status, Priority_Level FROM Tasks";
+        cmd.CommandText = _provider == "postgres"
+            ? "SELECT \"taskid\", \"userid\", \"title\", \"description\", \"due_date\", \"task_status\", \"priority_level\" FROM tasks"
+            : "SELECT TaskID, UserID, Title, Description, Due_Date, Task_Status, Priority_Level FROM Tasks";
         using var reader = await cmd.ExecuteReaderAsync();
         while (await reader.ReadAsync())
         {

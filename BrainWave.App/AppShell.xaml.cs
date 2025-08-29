@@ -1,4 +1,4 @@
-﻿using BrainWave.App.Views;
+using BrainWave.App.Views;
 using Microsoft.Maui.Controls;
 
 namespace BrainWave.App
@@ -19,6 +19,7 @@ namespace BrainWave.App
             Routing.RegisterRoute(nameof(ReminderPage), typeof(ReminderPage));
             Routing.RegisterRoute(nameof(BadgePage), typeof(BadgePage));
             Routing.RegisterRoute(nameof(CollaborationPage), typeof(CollaborationPage));
+            Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
         }
     }
 }

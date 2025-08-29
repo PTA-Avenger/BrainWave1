@@ -1,7 +1,7 @@
-﻿namespace BrainWave.App.Models;
+namespace BrainWave.App.Models;
 
 
-public record RegisterRequest(string F_Name, string L_Name, string Email, string Password, string? Role);
+public record RegisterRequest(string F_Name, string L_Name, string Email, string Password, string? Role, string? Profile_Picture);
 public record LoginRequest(string Email, string Password);
 
 

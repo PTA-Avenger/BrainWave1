@@ -4,8 +4,12 @@
              x:Class="BrainWave.App.Views.DashboardPage"
              Title="Dashboard">
     <ScrollView>
-        <VerticalStackLayout Padding="16" Spacing="12">
-            <Label Text="{Binding WelcomeMessage}" Style="{StaticResource Heading1}" />
+        <VerticalStackLayout Padding="16" Spacing="16">
+            <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                <Label Text="{Binding WelcomeMessage}" Style="{StaticResource Heading1}" />
+                <Button Grid.Column="1" Text="Profile" Command="{Binding GoToProfileCommand}" Style="{StaticResource GhostButton}" />
+            </Grid>
+
             <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
                 <Frame Style="{StaticResource Card}">
                     <VerticalStackLayout>
@@ -20,12 +24,23 @@
                     </VerticalStackLayout>
                 </Frame>
             </Grid>
+
             <Frame Style="{StaticResource Card}">
                 <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
                     <Label Text="Streak" Style="{StaticResource Heading2}" />
                     <Label Grid.Column="1" Text="{Binding StreakCount}" />
                 </Grid>
             </Frame>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Button Text="Tasks" Command="{Binding GoToTasksCommand}" />
+                <Button Grid.Column="1" Text="Reminders" Command="{Binding GoToRemindersCommand}" />
+            </Grid>
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Button Text="Badges" Command="{Binding GoToBadgesCommand}" />
+                <Button Grid.Column="1" Text="Collaborations" Command="{Binding GoToCollabCommand}" />
+            </Grid>
+
             <Button Text="Refresh" Command="{Binding LoadDashboardCommand}" IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}" />
         </VerticalStackLayout>
     </ScrollView>

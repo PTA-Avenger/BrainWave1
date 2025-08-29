@@ -1,4 +1,4 @@
-﻿using BrainWave.Api.DTOs;
+using BrainWave.Api.DTOs;
 using BrainWave.API.DTOs;
 using BrainWave.API.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -36,7 +36,7 @@ namespace BrainWave.API.Controllers
                 L_Name = dto.L_Name,
                 Email = dto.Email,
                 Password_Hash = hashedPassword,
-                Role = "User"
+                Role = string.IsNullOrWhiteSpace(dto.Role) ? "User" : dto.Role
             };
 
             await _repo.AddUserAsync(user);

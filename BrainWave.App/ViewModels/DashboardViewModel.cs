@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
 
 namespace BrainWave.App.ViewModels
 {
@@ -37,6 +38,36 @@ namespace BrainWave.App.ViewModels
             {
                 IsBusy = false;
             }
+        }
+
+        [RelayCommand]
+        private async Task GoToTasksAsync()
+        {
+            await Shell.Current.GoToAsync("//Tasks");
+        }
+
+        [RelayCommand]
+        private async Task GoToRemindersAsync()
+        {
+            await Shell.Current.GoToAsync("//Reminders");
+        }
+
+        [RelayCommand]
+        private async Task GoToBadgesAsync()
+        {
+            await Shell.Current.GoToAsync("//Badges");
+        }
+
+        [RelayCommand]
+        private async Task GoToCollabAsync()
+        {
+            await Shell.Current.GoToAsync("//Collab");
+        }
+
+        [RelayCommand]
+        private async Task GoToProfileAsync()
+        {
+            await Shell.Current.GoToAsync(nameof(Views.ProfilePage));
         }
     }
 }
